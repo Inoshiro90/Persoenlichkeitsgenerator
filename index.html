@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Persönlichkeitsgenerator</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="styles/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<h1><b>Persönlichkeitsgenerator</b></h1>
+		<p><b>Archetyp:</b></p>
+		<select class="form-select mb-4" style="width:auto" id="dropdown-archetype" name="archetype">
+			<option id="none">Ohne</option>
+			<option selected id="random">Zufall</option>
+			<option id="idealist">Idealist</option>
+			<option id="realist">Realist</option>
+			<option id="caregiver">Fürsorger</option>
+			<option id="warrior">Krieger</option>
+			<option id="seeker">Sucher</option>
+			<option id="lover">Liebhaber</option>
+			<option id="creator">Schöpfer</option>
+			<option id="revolutionary">Revolutionär</option>
+			<option id="sage">Weiser</option>
+			<option id="magician">Magier</option>
+			<option id="ruler">Herrscher</option>
+			<option id="fool">Narr</option>
+		</select>
+		<div class="mb-3">
+			<label class="form-label"><b>Was soll angezeigt werden?</b></label>
+			<div class="form-check">
+				<input class="form-check-input display-option" type="checkbox" id="showAdjectives" checked>
+				<label class="form-check-label" for="showAdjectives">Adjektive</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input display-option" type="checkbox" id="showDescriptions" checked>
+				<label class="form-check-label" for="showDescriptions">Beschreibungen</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input display-option" type="checkbox" id="showItems" unchecked>
+				<label class="form-check-label" for="showItems">Items</label>
+			</div>
+		</div>
+		<button id="btn-generate-personality" class="btn btn-secondary mb-4">
+			Generieren
+		</button>
+		<h2>Persönlichkeitsmerkmale</h2>
+		<div class="container-fluid" id="output"></div>
+	</div>
+	<script src="scripts/archetypeArray.js"></script>
+	<script src="scripts/facetArray.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/chooseArchetype.js"></script>
+	<script src="scripts/setDomainLevel.js"></script>
+	<script src="scripts/setFacetLevel.js"></script>
+	<script src="scripts/getFacetDescription.js"></script>
+	<script src="scripts/getFacetAdjective.js"></script>
+	<script src="scripts/getFacetItem.js"></script>
+</body>
+
+</html>
