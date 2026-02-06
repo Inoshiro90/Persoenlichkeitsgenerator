@@ -1,0 +1,730 @@
+function selectTopThreeMoralValues(facetLevels) {
+	// ───────────────────────────────────────────────────────────────
+	// 1️⃣  Alle möglichen Anpassungen als Objekt definieren
+	// ───────────────────────────────────────────────────────────────
+
+	const adjustments = {
+		// H‑Facetten
+		H1: {
+			high: {
+				selfDirection: 10,
+				stimulation: 0,
+				hedonism: -15,
+				achievement: -20,
+				power: -40,
+				security: 5,
+				conformity: 10,
+				tradition: 10,
+				benevolence: 15,
+				universalism: 25,
+			},
+			low: {
+				selfDirection: -10,
+				stimulation: 0,
+				hedonism: 15,
+				achievement: 20,
+				power: 40,
+				security: -5,
+				conformity: -10,
+				tradition: -10,
+				benevolence: -15,
+				universalism: -25,
+			},
+		},
+
+		H2: {
+			high: {
+				selfDirection: -5,
+				stimulation: -10,
+				hedonism: -25,
+				achievement: -10,
+				power: -35,
+				security: 10,
+				conformity: 25,
+				tradition: 10,
+				benevolence: 20,
+				universalism: 20,
+			},
+			low: {
+				selfDirection: 5,
+				stimulation: 10,
+				hedonism: 25,
+				achievement: 10,
+				power: 35,
+				security: -10,
+				conformity: -25,
+				tradition: -10,
+				benevolence: -20,
+				universalism: -20,
+			},
+		},
+
+		H3: {
+			high: {
+				selfDirection: 20,
+				stimulation: 0,
+				hedonism: -15,
+				achievement: -35,
+				power: -55,
+				security: 0,
+				conformity: 10,
+				tradition: 15,
+				benevolence: 30,
+				universalism: 40,
+			},
+			low: {
+				selfDirection: -20,
+				stimulation: 0,
+				hedonism: 15,
+				achievement: 35,
+				power: 55,
+				security: 0,
+				conformity: -10,
+				tradition: -15,
+				benevolence: -30,
+				universalism: -40,
+			},
+		},
+
+		H4: {
+			high: {
+				selfDirection: 5,
+				stimulation: -5,
+				hedonism: -5,
+				achievement: -30,
+				power: -50,
+				security: 5,
+				conformity: 20,
+				tradition: 15,
+				benevolence: 25,
+				universalism: 30,
+			},
+			low: {
+				selfDirection: -5,
+				stimulation: 5,
+				hedonism: 5,
+				achievement: 30,
+				power: 50,
+				security: -5,
+				conformity: -20,
+				tradition: -15,
+				benevolence: -25,
+				universalism: -30,
+			},
+		},
+
+		// E‑Facetten 
+		E1: {
+			high: {
+				selfDirection: -10,
+				stimulation: -35,
+				hedonism: -5,
+				achievement: 0,
+				power: -10,
+				security: 30,
+				conformity: 30,
+				tradition: 5,
+				benevolence: -10,
+				universalism: -10,
+			},
+			low: {
+				selfDirection: 10,
+				stimulation: 35,
+				hedonism: 5,
+				achievement: 0,
+				power: 10,
+				security: -30,
+				conformity: -30,
+				tradition: -5,
+				benevolence: 10,
+				universalism: 10,
+			},
+		},
+
+		E2: {
+			high: {
+				selfDirection: -15,
+				stimulation: -20,
+				hedonism: -5,
+				achievement: 5,
+				power: -20,
+				security: 10,
+				conformity: 15,
+				tradition: 0,
+				benevolence: -20,
+				universalism: -10,
+			},
+			low: {
+				selfDirection: 15,
+				stimulation: 20,
+				hedonism: 5,
+				achievement: -5,
+				power: 20,
+				security: -10,
+				conformity: -15,
+				tradition: 0,
+				benevolence: 20,
+				universalism: 10,
+			},
+		},
+
+		E3: {
+			high: {
+				selfDirection: -20,
+				stimulation: -10,
+				hedonism: 10,
+				achievement: 5,
+				power: -5,
+				security: 5,
+				conformity: 10,
+				tradition: 0,
+				benevolence: 0,
+				universalism: 0,
+			},
+			low: {
+				selfDirection: 20,
+				stimulation: 10,
+				hedonism: -10,
+				achievement: -5,
+				power: 5,
+				security: -5,
+				conformity: -10,
+				tradition: 0,
+				benevolence: 0,
+				universalism: 0,
+			},
+		},
+
+		E4: {
+			high: {
+				selfDirection: -20,
+				stimulation: -10,
+				hedonism: 0,
+				achievement: -10,
+				power: -20,
+				security: 10,
+				conformity: 15,
+				tradition: 0,
+				benevolence: 15,
+				universalism: 20,
+			},
+			low: {
+				selfDirection: 20,
+				stimulation: 10,
+				hedonism: 0,
+				achievement: 10,
+				power: 20,
+				security: -10,
+				conformity: -15,
+				tradition: 0,
+				benevolence: -15,
+				universalism: -20,
+			},
+		},
+
+		// X‑Facetten 
+		X1: {
+			high: {
+				selfDirection: 5,
+				stimulation: 10,
+				hedonism: 10,
+				achievement: 5,
+				power: -20,
+				security: 0,
+				conformity: -10,
+				tradition: -10,
+				benevolence: 10,
+				universalism: 5,
+			},
+			low: {
+				selfDirection: -5,
+				stimulation: -10,
+				hedonism: -10,
+				achievement: -5,
+				power: 20,
+				security: 0,
+				conformity: 10,
+				tradition: 10,
+				benevolence: -10,
+				universalism: -5,
+			},
+		},
+
+		X2: {
+			high: {
+				selfDirection: 15,
+				stimulation: 20,
+				hedonism: -5,
+				achievement: 10,
+				power: -10,
+				security: -10,
+				conformity: -25,
+				tradition: -20,
+				benevolence: 10,
+				universalism: 10,
+			},
+			low: {
+				selfDirection: -15,
+				stimulation: -20,
+				hedonism: 5,
+				achievement: -10,
+				power: 10,
+				security: 10,
+				conformity: 25,
+				tradition: 20,
+				benevolence: -10,
+				universalism: -10,
+			},
+		},
+
+		X3: {
+			high: {
+				selfDirection: -20,
+				stimulation: 15,
+				hedonism: 25,
+				achievement: 5,
+				power: -15,
+				security: -5,
+				conformity: 0,
+				tradition: -10,
+				benevolence: 0,
+				universalism: 5,
+			},
+			low: {
+				selfDirection: 20,
+				stimulation: -15,
+				hedonism: -25,
+				achievement: -5,
+				power: 15,
+				security: 5,
+				conformity: 0,
+				tradition: 10,
+				benevolence: 0,
+				universalism: -5,
+			},
+		},
+
+		X4: {
+			high: {
+				selfDirection: 0,
+				stimulation: 25,
+				hedonism: 10,
+				achievement: 5,
+				power: -25,
+				security: -10,
+				conformity: -15,
+				tradition: -10,
+				benevolence: 10,
+				universalism: 10,
+			},
+			low: {
+				selfDirection: 0,
+				stimulation: -25,
+				hedonism: -10,
+				achievement: -5,
+				power: 25,
+				security: 10,
+				conformity: 15,
+				tradition: 10,
+				benevolence: -10,
+				universalism: -10,
+			},
+		},
+
+		// A‑Facetten 
+		A1: {
+			high: {
+				selfDirection: -10,
+				stimulation: 5,
+				hedonism: -5,
+				achievement: -15,
+				power: -35,
+				security: -10,
+				conformity: 15,
+				tradition: 15,
+				benevolence: 0,
+				universalism: 25,
+			},
+			low: {
+				selfDirection: 10,
+				stimulation: -5,
+				hedonism: 5,
+				achievement: 15,
+				power: 35,
+				security: 10,
+				conformity: -15,
+				tradition: -15,
+				benevolence: 0,
+				universalism: -25,
+			},
+		},
+
+		A2: {
+			high: {
+				selfDirection: -25,
+				stimulation: -10,
+				hedonism: -5,
+				achievement: -25,
+				power: -35,
+				security: 5,
+				conformity: 35,
+				tradition: 30,
+				benevolence: 0,
+				universalism: 20,
+			},
+			low: {
+				selfDirection: 25,
+				stimulation: 10,
+				hedonism: 5,
+				achievement: 25,
+				power: 35,
+				security: -5,
+				conformity: -35,
+				tradition: -30,
+				benevolence: 0,
+				universalism: -20,
+			},
+		},
+
+		A3: {
+			high: {
+				selfDirection: -10,
+				stimulation: 0,
+				hedonism: -5,
+				achievement: -15,
+				power: -40,
+				security: 5,
+				conformity: 15,
+				tradition: 10,
+				benevolence: 10,
+				universalism: 25,
+			},
+			low: {
+				selfDirection: 10,
+				stimulation: 0,
+				hedonism: 5,
+				achievement: 15,
+				power: 40,
+				security: -5,
+				conformity: -15,
+				tradition: -10,
+				benevolence: -10,
+				universalism: -25,
+			},
+		},
+
+		A4: {
+			high: {
+				selfDirection: -5,
+				stimulation: 0,
+				hedonism: -10,
+				achievement: -15,
+				power: -35,
+				security: 0,
+				conformity: 20,
+				tradition: 10,
+				benevolence: 10,
+				universalism: 20,
+			},
+			low: {
+				selfDirection: 5,
+				stimulation: 0,
+				hedonism: 10,
+				achievement: 15,
+				power: 35,
+				security: 0,
+				conformity: -20,
+				tradition: -10,
+				benevolence: -10,
+				universalism: -20,
+			},
+		},
+
+		// C‑Facetten 
+		C1: {
+			high: {
+				selfDirection: -15,
+				stimulation: -10,
+				hedonism: -10,
+				achievement: 0,
+				power: -5,
+				security: 20,
+				conformity: 15,
+				tradition: 5,
+				benevolence: 5,
+				universalism: -5,
+			},
+			low: {
+				selfDirection: 15,
+				stimulation: 10,
+				hedonism: 10,
+				achievement: 0,
+				power: 5,
+				security: -20,
+				conformity: -15,
+				tradition: -5,
+				benevolence: -5,
+				universalism: 5,
+			},
+		},
+
+		C2: {
+			high: {
+				selfDirection: 5,
+				stimulation: 15,
+				hedonism: -20,
+				achievement: 25,
+				power: -15,
+				security: -5,
+				conformity: -10,
+				tradition: -5,
+				benevolence: 15,
+				universalism: 5,
+			},
+			low: {
+				selfDirection: -5,
+				stimulation: -15,
+				hedonism: 20,
+				achievement: -25,
+				power: 15,
+				security: 5,
+				conformity: 10,
+				tradition: 5,
+				benevolence: -15,
+				universalism: -5,
+			},
+		},
+
+		C3: {
+			high: {
+				selfDirection: 0,
+				stimulation: -15,
+				hedonism: -15,
+				achievement: 5,
+				power: -5,
+				security: 15,
+				conformity: 15,
+				tradition: 5,
+				benevolence: 5,
+				universalism: -5,
+			},
+			low: {
+				selfDirection: 0,
+				stimulation: 15,
+				hedonism: 15,
+				achievement: -5,
+				power: 5,
+				security: -15,
+				conformity: -15,
+				tradition: -5,
+				benevolence: -5,
+				universalism: 5,
+			},
+		},
+
+		C4: {
+			high: {
+				selfDirection: 0,
+				stimulation: -15,
+				hedonism: -25,
+				achievement: 0,
+				power: -20,
+				security: 20,
+				conformity: 15,
+				tradition: 10,
+				benevolence: 10,
+				universalism: 10,
+			},
+			low: {
+				selfDirection: 0,
+				stimulation: 15,
+				hedonism: 25,
+				achievement: 0,
+				power: 20,
+				security: -20,
+				conformity: -15,
+				tradition: -10,
+				benevolence: -10,
+				universalism: -10,
+			},
+		},
+
+		// O‑Facetten 
+		O1: {
+			high: {
+				selfDirection: 15,
+				stimulation: 15,
+				hedonism: -5,
+				achievement: -10,
+				power: -20,
+				security: -10,
+				conformity: -10,
+				tradition: -15,
+				benevolence: 5,
+				universalism: 40,
+			},
+			low: {
+				selfDirection: -15,
+				stimulation: -15,
+				hedonism: 5,
+				achievement: 10,
+				power: 20,
+				security: 10,
+				conformity: 10,
+				tradition: 15,
+				benevolence: -5,
+				universalism: -40,
+			},
+		},
+
+		O2: {
+			high: {
+				selfDirection: 20,
+				stimulation: 20,
+				hedonism: -10,
+				achievement: 0,
+				power: -15,
+				security: -10,
+				conformity: -20,
+				tradition: -10,
+				benevolence: 5,
+				universalism: 30,
+			},
+			low: {
+				selfDirection: -20,
+				stimulation: -20,
+				hedonism: 10,
+				achievement: 0,
+				power: 15,
+				security: 10,
+				conformity: 20,
+				tradition: 10,
+				benevolence: -5,
+				universalism: -30,
+			},
+		},
+
+		O3: {
+			high: {
+				selfDirection: 20,
+				stimulation: 35,
+				hedonism: -5,
+				achievement: 0,
+				power: -15,
+				security: -15,
+				conformity: -20,
+				tradition: -15,
+				benevolence: 0,
+				universalism: 25,
+			},
+			low: {
+				selfDirection: -20,
+				stimulation: -35,
+				hedonism: 5,
+				achievement: 0,
+				power: 15,
+				security: 15,
+				conformity: 20,
+				tradition: 15,
+				benevolence: 0,
+				universalism: -25,
+			},
+		},
+
+		O4: {
+			high: {
+				selfDirection: 35,
+				stimulation: 40,
+				hedonism: 0,
+				achievement: -5,
+				power: -15,
+				security: -30,
+				conformity: -30,
+				tradition: -25,
+				benevolence: 0,
+				universalism: 35,
+			},
+			low: {
+				selfDirection: -35,
+				stimulation: -40,
+				hedonism: 0,
+				achievement: 5,
+				power: 15,
+				security: 30,
+				conformity: 30,
+				tradition: 25,
+				benevolence: 0,
+				universalism: -35,
+			},
+		},
+
+		// Alt‑Facetten 
+		Alt1: {
+			high: {
+				selfDirection: -10,
+				stimulation: -10,
+				hedonism: -10,
+				achievement: -20,
+				power: -40,
+				security: 5,
+				conformity: 20,
+				tradition: 5,
+				benevolence: 20,
+				universalism: 40,
+			},
+			low: {
+				selfDirection: 10,
+				stimulation: 10,
+				hedonism: 10,
+				achievement: 20,
+				power: 40,
+				security: -5,
+				conformity: -20,
+				tradition: -5,
+				benevolence: -20,
+				universalism: -40,
+			},
+		},
+	};
+
+	// ───────────────────────────────────────────────────────────────
+	// 2️⃣  Gesamtsumme initialisieren
+	// ───────────────────────────────────────────────────────────────
+
+	const totals = {
+		selfDirection: 0,
+		stimulation: 0,
+		hedonism: 0,
+		achievement: 0,
+		power: 0,
+		security: 0,
+		conformity: 0,
+		tradition: 0,
+		benevolence: 0,
+		universalism: 0,
+	};
+
+	// ───────────────────────────────────────────────────────────────
+	// 3️⃣  Alle Facetten durchlaufen und die passenden Werte addieren
+	// ───────────────────────────────────────────────────────────────
+
+	for (const [facet, level] of Object.entries(facetLevels)) {
+		const adjustment = adjustments[facet]?.[level];
+		if (!adjustment) continue; // kein "high"/"low" oder unbekannte Facette
+
+		for (const key in adjustment) {
+			totals[key] += adjustment[key]; // Summieren
+		}
+	}
+
+	console.log('Totals:', totals);
+
+
+	const topThree = Object.entries(totals)
+		.sort((a, b) => b[1] - a[1]) // absteigend sortieren
+		.slice(0, 3);
+
+	console.log('Top 3:', topThree);
+
+	return topThree.map(([key]) => key);
+}

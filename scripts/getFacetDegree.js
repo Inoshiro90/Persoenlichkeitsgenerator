@@ -2,6 +2,16 @@
 // DOMÄNEN-PARTIKEL
 // =====================
 const facetDegreeMap = {
+	H: ['leicht', 'mäßig', 'stark', 'extrem'],
+	E: ['leicht', 'mäßig', 'stark', 'extrem'],
+	X: ['leicht', 'mäßig', 'stark', 'extrem'],
+	A: ['leicht', 'mäßig', 'stark', 'extrem'],
+	C: ['leicht', 'mäßig', 'stark', 'extrem'],
+	O: ['leicht', 'mäßig', 'stark', 'extrem'],
+	Alt: ['leicht', 'mäßig', 'stark', 'extrem'],
+};
+
+const facetDegreeMapOld = {
 	H: ['ansatzweise', 'überwiegend', 'konsequent', 'durch und durch'],
 	E: ['etwas', 'erkennbar', 'massiv', 'extrem'],
 	X: ['subtil', 'betont', 'ausgeprägt', 'außergewöhnlich'],
