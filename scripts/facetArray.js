@@ -224,7 +224,7 @@ const facetArray = [
 		adjectiveLow: 'nachtragend',
 		itemLow1: 'bleibt dauerhaft misstrauisch gegenüber Personen, die einmal getäuscht haben',
 		itemLow2: 'empfindet vollständige Vergebung gegenüber gemeinem Verhalten als schwierig',
-		itemLow3: 'trägt lange das erlittene Unrechtmit sich',
+		itemLow3: 'trägt lange das erlittene Unrecht mit sich',
 		itemLow4: 'hält Personen, die Schaden verursacht haben, für unverzeihlich',
 	},
 	{
