@@ -15,9 +15,6 @@ document.getElementById('btn-generate-personality').addEventListener('click', ()
 	const domain = setDomainLevel(archetype); // extern definiert
 	const facet = setFacetLevel(archetype, domain);
 	lastBestValues = selectTopThreeMoralValues(facet);
-	/* → berechne und speichere die Top‑3 Moral Values */
-
-	/* … weitere globale Variablen setzen … */
 	lastFacet = facet;
 	lastDescriptions = getFacetDescription(facet);
 	lastItems = getFacetItem(facet);
@@ -76,7 +73,7 @@ function updateOutput() {
 			if (document.getElementById('showBestValues').checked && lastBestValues) {
 				const html = lastBestValues
 					.map((key) => {
-						console.log('Key: ', key);
+						// console.log('Key: ', key);
 						const info = getMoralValueInfo(key); // <‑ hier wird die Funktion benutzt
 						if (!info) return console.log('kein Key gefunden ')`<li>${key}</li>`; // Fallback, falls kein Mapping gefunden
 
@@ -100,22 +97,22 @@ function updateOutput() {
 // =====================
 // GENERATE PERSONALITY
 // =====================
-document.getElementById('btn-generate-personality').addEventListener('click', () => {
-	const archetype = chooseArchetype(); // extern definiert
-	const domain = setDomainLevel(archetype); // extern definiert
-	const facet = setFacetLevel(archetype, domain);
+// document.getElementById('btn-generate-personality').addEventListener('click', () => {
+// 	const archetype = chooseArchetype(); // extern definiert
+// 	const domain = setDomainLevel(archetype); // extern definiert
+// 	const facet = setFacetLevel(archetype, domain);
 
-	/* → berechne und speichere die Top‑3 Moral Values */
+// 	/* → berechne und speichere die Top‑3 Moral Values */
 
-	/* … weitere globale Variablen setzen … */
-	lastFacet = facet;
-	lastDescriptions = getFacetDescription(facet);
-	lastItems = getFacetItem(facet);
-	lastAdjectives = getFacetAdjective(facet);
-	lastBestValues = selectTopThreeMoralValues(facet);
+// 	/* … weitere globale Variablen setzen … */
+// 	lastFacet = facet;
+// 	lastDescriptions = getFacetDescription(facet);
+// 	lastItems = getFacetItem(facet);
+// 	lastAdjectives = getFacetAdjective(facet);
+// 	lastBestValues = selectTopThreeMoralValues(facet);
 
-	updateOutput();
-});
+// 	updateOutput();
+// });
 
 // =====================
 // DYNAMISCHES UMSCHALTEN DER CHECKBOXEN

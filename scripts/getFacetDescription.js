@@ -8,6 +8,6 @@ function getFacetDescription(facet) {
 		}
 	}
 
-	console.log("Facettenbeschreibung: ", facetDescription);
+	// console.log("Facettenbeschreibung: ", facetDescription);
 	return facetDescription;
 }

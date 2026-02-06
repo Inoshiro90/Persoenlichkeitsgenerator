@@ -1,5 +1,5 @@
 function getMoralValueInfo(key) {
-	console.log('getMoralValueInfo called with key: ', key);
+	// console.log('getMoralValueInfo called with key: ', key);
 	const mapping = {
 		// ---------- 1️⃣  Titel ----------
 		selfDirection: {title: 'SELBSTBESTIMMUNG'},
@@ -66,6 +66,6 @@ function getMoralValueInfo(key) {
 		},
 	};
 
-	console.log('Mapping: ', mapping);
+	// console.log('Mapping: ', mapping);
 	return mapping[key] || null;
 }

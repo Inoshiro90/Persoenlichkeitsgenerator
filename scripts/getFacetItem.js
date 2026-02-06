@@ -13,6 +13,6 @@ function getFacetItem(facet) {
 		}
 	}
 
-	console.log("Facettenitem: ", facetItem);
+	// console.log("Facettenitem: ", facetItem);
 	return facetItem;
 }

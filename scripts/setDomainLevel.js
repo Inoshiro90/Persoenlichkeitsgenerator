@@ -47,6 +47,6 @@ function setDomainLevel(archetype) {
 		}
 	}
 
-	console.log('Domänen: ', domain);
+	// console.log('Domänen: ', domain);
 	return domain;
 }

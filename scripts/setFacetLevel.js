@@ -31,6 +31,6 @@ function setFacetLevel(archetype, domain) {
 	// Altruismus direkt setzen (keine 4er-Gruppe)
 	facet.Alt1 = domain.altruism;
 
-	console.log('Facetten: ', facet);
+	// console.log('Facetten: ', facet);
 	return facet;
 }
