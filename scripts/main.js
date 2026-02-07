@@ -117,7 +117,14 @@ function updateOutput() {
 // =====================
 // DYNAMISCHES UMSCHALTEN DER CHECKBOXEN
 // =====================
-['showAdjectives', 'showDescriptions', 'showItems', 'showBestValues'].forEach((id) => {
+[
+	'showAdjectives',
+	'showDescriptions',
+	'showItems',
+	'showBestValues',
+	'valueAdjustment',
+	'numberValues',
+].forEach((id) => {
 	document.getElementById(id).addEventListener('change', () => {
 		if (!lastFacet) return;
 		lastAdjectives = getFacetAdjective(lastFacet);

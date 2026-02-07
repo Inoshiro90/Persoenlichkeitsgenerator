@@ -4,13 +4,14 @@ function selectTopThreeMoralValues(facetLevels) {
 	const weakPositive = 3;
 	const veryWeakPositive = 2;
 	const negligiblePositive = 1;
+	const neither = 0;
 	const negligibleNegative = -1;
 	const veryWeakNegative = -2;
 	const weakNegative = -3;
 	const moderateNegative = -4;
 	const strongNegative = -5;
 
-	const adjustments = {
+	const adjustments10 = {
 		// H‑Facetten
 		H1: {
 			high: {
@@ -694,6 +695,689 @@ function selectTopThreeMoralValues(facetLevels) {
 		},
 	};
 
+	const adjustments25 = {
+		// H‑Facetten
+		H1: {
+			high: {
+				selfDirection: weakPositive,
+				stimulation: veryWeakPositive,
+				hedonism: moderateNegative,
+				achievement: moderateNegative,
+				power: moderateNegative,
+				security: veryWeakPositive,
+				conformity: veryWeakNegative,
+				tradition: weakPositive,
+				benevolence: moderatePositive,
+				universalism: weakPositive,
+			},
+			low: {
+				selfDirection: weakNegative,
+				stimulation: veryWeakNegative,
+				hedonism: moderatePositive,
+				achievement: moderatePositive,
+				power: moderatePositive,
+				security: veryWeakNegative,
+				conformity: veryWeakPositive,
+				tradition: weakNegative,
+				benevolence: moderateNegative,
+				universalism: weakNegative,
+			},
+		},
+
+		H2: {
+			high: {
+				selfDirection: veryWeakNegative,
+				stimulation: moderateNegative,
+				hedonism: strongNegative,
+				achievement: veryWeakNegative,
+				power: weakNegative,
+				security: moderatePositive,
+				conformity: strongPositive,
+				tradition: moderatePositive,
+				benevolence: moderatePositive,
+				universalism: veryWeakPositive,
+			},
+			low: {
+				selfDirection: veryWeakPositive,
+				stimulation: moderatePositive,
+				hedonism: strongPositive,
+				achievement: veryWeakPositive,
+				power: weakPositive,
+				security: moderateNegative,
+				conformity: strongNegative,
+				tradition: moderateNegative,
+				benevolence: moderateNegative,
+				universalism: veryWeakNegative,
+			},
+		},
+
+		H3: {
+			high: {
+				selfDirection: strongPositive,
+				stimulation: neither,
+				hedonism: moderateNegative,
+				achievement: strongNegative,
+				power: strongNegative,
+				security: negligibleNegative,
+				conformity: negligibleNegative,
+				tradition: moderatePositive,
+				benevolence: strongPositive,
+				universalism: strongPositive,
+			},
+			low: {
+				selfDirection: strongNegative,
+				stimulation: neither,
+				hedonism: moderatePositive,
+				achievement: strongPositive,
+				power: strongPositive,
+				security: negligiblePositive,
+				conformity: negligiblePositive,
+				tradition: moderateNegative,
+				benevolence: strongNegative,
+				universalism: strongNegative,
+			},
+		},
+
+		H4: {
+			high: {
+				selfDirection: veryWeakPositive,
+				stimulation: veryWeakNegative,
+				hedonism: negligiblePositive,
+				achievement: strongNegative,
+				power: strongNegative,
+				security: veryWeakPositive,
+				conformity: moderatePositive,
+				tradition: strongPositive,
+				benevolence: strongPositive,
+				universalism: moderatePositive,
+			},
+			low: {
+				selfDirection: veryWeakNegative,
+				stimulation: veryWeakPositive,
+				hedonism: negligibleNegative,
+				achievement: strongPositive,
+				power: strongPositive,
+				security: veryWeakNegative,
+				conformity: moderateNegative,
+				tradition: strongNegative,
+				benevolence: strongNegative,
+				universalism: moderateNegative,
+			},
+		},
+
+		// E‑Facetten
+		E1: {
+			high: {
+				selfDirection: moderateNegative,
+				stimulation: strongNegative,
+				hedonism: neither,
+				achievement: veryWeakPositive,
+				power: moderatePositive,
+				security: strongPositive,
+				conformity: strongPositive,
+				tradition: veryWeakPositive,
+				benevolence: strongNegative,
+				universalism: strongNegative,
+			},
+			low: {
+				selfDirection: moderatePositive,
+				stimulation: strongPositive,
+				hedonism: neither,
+				achievement: veryWeakNegative,
+				power: moderateNegative,
+				security: strongNegative,
+				conformity: strongNegative,
+				tradition: veryWeakNegative,
+				benevolence: strongPositive,
+				universalism: strongPositive,
+			},
+		},
+
+		E2: {
+			high: {
+				selfDirection: weakNegative,
+				stimulation: strongNegative,
+				hedonism: weakPositive,
+				achievement: moderatePositive,
+				power: veryWeakPositive,
+				security: moderatePositive,
+				conformity: veryWeakPositive,
+				tradition: veryWeakNegative,
+				benevolence: strongNegative,
+				universalism: strongNegative,
+			},
+			low: {
+				selfDirection: weakPositive,
+				stimulation: strongPositive,
+				hedonism: weakNegative,
+				achievement: moderateNegative,
+				power: veryWeakNegative,
+				security: moderateNegative,
+				conformity: veryWeakNegative,
+				tradition: veryWeakPositive,
+				benevolence: strongPositive,
+				universalism: strongPositive,
+			},
+		},
+
+		E3: {
+			high: {
+				selfDirection: strongNegative,
+				stimulation: veryWeakNegative,
+				hedonism: strongPositive,
+				achievement: weakPositive,
+				power: strongPositive,
+				security: neither,
+				conformity: veryWeakNegative,
+				tradition: veryWeakNegative,
+				benevolence: moderateNegative,
+				universalism: moderateNegative,
+			},
+			low: {
+				selfDirection: strongPositive,
+				stimulation: veryWeakPositive,
+				hedonism: strongNegative,
+				achievement: weakNegative,
+				power: strongNegative,
+				security: neither,
+				conformity: veryWeakPositive,
+				tradition: veryWeakPositive,
+				benevolence: moderatePositive,
+				universalism: moderatePositive,
+			},
+		},
+
+		E4: {
+			high: {
+				selfDirection: moderateNegative,
+				stimulation: weakNegative,
+				hedonism: moderatePositive,
+				achievement: veryWeakNegative,
+				power: neither,
+				security: weakPositive,
+				conformity: negligiblePositive,
+				tradition: negligibleNegative,
+				benevolence: moderatePositive,
+				universalism: negligibleNegative,
+			},
+			low: {
+				selfDirection: moderatePositive,
+				stimulation: weakPositive,
+				hedonism: moderateNegative,
+				achievement: veryWeakPositive,
+				power: neither,
+				security: weakNegative,
+				conformity: negligibleNegative,
+				tradition: negligiblePositive,
+				benevolence: moderateNegative,
+				universalism: negligiblePositive,
+			},
+		},
+
+		// X‑Facetten
+		X1: {
+			high: {
+				selfDirection: weakPositive,
+				stimulation: weakPositive,
+				hedonism: moderatePositive,
+				achievement: moderatePositive,
+				power: veryWeakNegative,
+				security: veryWeakNegative,
+				conformity: weakNegative,
+				tradition: weakNegative,
+				benevolence: weakPositive,
+				universalism: weakNegative,
+			},
+			low: {
+				selfDirection: weakNegative,
+				stimulation: weakNegative,
+				hedonism: moderateNegative,
+				achievement: moderateNegative,
+				power: veryWeakPositive,
+				security: veryWeakPositive,
+				conformity: weakPositive,
+				tradition: weakPositive,
+				benevolence: weakNegative,
+				universalism: weakPositive,
+			},
+		},
+
+		X2: {
+			high: {
+				selfDirection: moderatePositive,
+				stimulation: moderatePositive,
+				hedonism: weakPositive,
+				achievement: strongPositive,
+				power: strongPositive,
+				security: moderateNegative,
+				conformity: strongNegative,
+				tradition: strongNegative,
+				benevolence: veryWeakPositive,
+				universalism: veryWeakNegative,
+			},
+			low: {
+				selfDirection: moderateNegative,
+				stimulation: moderateNegative,
+				hedonism: weakNegative,
+				achievement: strongNegative,
+				power: strongNegative,
+				security: moderatePositive,
+				conformity: strongPositive,
+				tradition: strongPositive,
+				benevolence: veryWeakNegative,
+				universalism: veryWeakPositive,
+			},
+		},
+
+		X3: {
+			high: {
+				selfDirection: strongNegative,
+				stimulation: weakPositive,
+				hedonism: strongPositive,
+				achievement: moderatePositive,
+				power: weakPositive,
+				security: weakNegative,
+				conformity: weakNegative,
+				tradition: moderateNegative,
+				benevolence: strongNegative,
+				universalism: moderateNegative,
+			},
+			low: {
+				selfDirection: strongPositive,
+				stimulation: weakNegative,
+				hedonism: strongNegative,
+				achievement: moderateNegative,
+				power: weakNegative,
+				security: weakPositive,
+				conformity: weakPositive,
+				tradition: moderatePositive,
+				benevolence: strongPositive,
+				universalism: moderatePositive,
+			},
+		},
+
+		X4: {
+			high: {
+				selfDirection: veryWeakPositive,
+				stimulation: strongPositive,
+				hedonism: strongPositive,
+				achievement: weakPositive,
+				power: veryWeakNegative,
+				security: weakNegative,
+				conformity: moderateNegative,
+				tradition: weakNegative,
+				benevolence: veryWeakPositive,
+				universalism: veryWeakNegative,
+			},
+			low: {
+				selfDirection: veryWeakNegative,
+				stimulation: strongNegative,
+				hedonism: strongNegative,
+				achievement: weakNegative,
+				power: veryWeakPositive,
+				security: weakPositive,
+				conformity: moderatePositive,
+				tradition: weakPositive,
+				benevolence: veryWeakNegative,
+				universalism: veryWeakPositive,
+			},
+		},
+
+		// A‑Facetten
+		A1: {
+			high: {
+				selfDirection: weakNegative,
+				stimulation: veryWeakPositive,
+				hedonism: veryWeakPositive,
+				achievement: weakNegative,
+				power: weakNegative,
+				security: moderateNegative,
+				conformity: neither,
+				tradition: strongPositive,
+				benevolence: weakNegative,
+				universalism: weakPositive,
+			},
+			low: {
+				selfDirection: weakPositive,
+				stimulation: veryWeakNegative,
+				hedonism: veryWeakNegative,
+				achievement: weakPositive,
+				power: weakPositive,
+				security: moderatePositive,
+				conformity: neither,
+				tradition: strongNegative,
+				benevolence: weakPositive,
+				universalism: weakNegative,
+			},
+		},
+
+		A2: {
+			high: {
+				selfDirection: strongNegative,
+				stimulation: moderateNegative,
+				hedonism: negligibleNegative,
+				achievement: strongNegative,
+				power: moderateNegative,
+				security: weakPositive,
+				conformity: strongPositive,
+				tradition: strongPositive,
+				benevolence: weakNegative,
+				universalism: neither,
+			},
+			low: {
+				selfDirection: strongPositive,
+				stimulation: moderatePositive,
+				hedonism: negligiblePositive,
+				achievement: strongPositive,
+				power: moderatePositive,
+				security: weakNegative,
+				conformity: strongNegative,
+				tradition: strongNegative,
+				benevolence: weakPositive,
+				universalism: neither,
+			},
+		},
+
+		A3: {
+			high: {
+				selfDirection: weakNegative,
+				stimulation: negligibleNegative,
+				hedonism: veryWeakPositive,
+				achievement: moderateNegative,
+				power: moderateNegative,
+				security: negligiblePositive,
+				conformity: weakPositive,
+				tradition: moderatePositive,
+				benevolence: negligiblePositive,
+				universalism: weakPositive,
+			},
+			low: {
+				selfDirection: weakPositive,
+				stimulation: negligiblePositive,
+				hedonism: veryWeakNegative,
+				achievement: moderatePositive,
+				power: moderatePositive,
+				security: negligibleNegative,
+				conformity: weakNegative,
+				tradition: moderateNegative,
+				benevolence: negligibleNegative,
+				universalism: weakNegative,
+			},
+		},
+
+		A4: {
+			high: {
+				selfDirection: neither,
+				stimulation: negligiblePositive,
+				hedonism: weakNegative,
+				achievement: weakNegative,
+				power: weakNegative,
+				security: veryWeakNegative,
+				conformity: moderatePositive,
+				tradition: weakPositive,
+				benevolence: neither,
+				universalism: negligiblePositive,
+			},
+			low: {
+				selfDirection: neither,
+				stimulation: negligibleNegative,
+				hedonism: weakPositive,
+				achievement: weakPositive,
+				power: weakPositive,
+				security: veryWeakPositive,
+				conformity: moderateNegative,
+				tradition: weakNegative,
+				benevolence: neither,
+				universalism: negligibleNegative,
+			},
+		},
+
+		// C‑Facetten
+		C1: {
+			high: {
+				selfDirection: moderateNegative,
+				stimulation: weakNegative,
+				hedonism: weakNegative,
+				achievement: veryWeakPositive,
+				power: moderatePositive,
+				security: strongPositive,
+				conformity: veryWeakPositive,
+				tradition: veryWeakPositive,
+				benevolence: weakNegative,
+				universalism: moderateNegative,
+			},
+			low: {
+				selfDirection: moderatePositive,
+				stimulation: weakPositive,
+				hedonism: weakPositive,
+				achievement: veryWeakNegative,
+				power: moderateNegative,
+				security: strongNegative,
+				conformity: veryWeakNegative,
+				tradition: veryWeakNegative,
+				benevolence: weakPositive,
+				universalism: moderatePositive,
+			},
+		},
+
+		C2: {
+			high: {
+				selfDirection: weakPositive,
+				stimulation: weakPositive,
+				hedonism: strongNegative,
+				achievement: strongPositive,
+				power: moderatePositive,
+				security: weakNegative,
+				conformity: weakNegative,
+				tradition: weakNegative,
+				benevolence: weakPositive,
+				universalism: weakNegative,
+			},
+			low: {
+				selfDirection: weakNegative,
+				stimulation: weakNegative,
+				hedonism: strongPositive,
+				achievement: strongNegative,
+				power: moderateNegative,
+				security: weakPositive,
+				conformity: weakPositive,
+				tradition: weakPositive,
+				benevolence: weakNegative,
+				universalism: weakPositive,
+			},
+		},
+
+		C3: {
+			high: {
+				selfDirection: negligibleNegative,
+				stimulation: moderateNegative,
+				hedonism: moderateNegative,
+				achievement: strongPositive,
+				power: strongPositive,
+				security: moderatePositive,
+				conformity: weakPositive,
+				tradition: negligiblePositive,
+				benevolence: veryWeakNegative,
+				universalism: strongNegative,
+			},
+			low: {
+				selfDirection: negligiblePositive,
+				stimulation: moderatePositive,
+				hedonism: moderatePositive,
+				achievement: strongNegative,
+				power: strongNegative,
+				security: moderateNegative,
+				conformity: weakNegative,
+				tradition: negligibleNegative,
+				benevolence: veryWeakPositive,
+				universalism: strongPositive,
+			},
+		},
+
+		C4: {
+			high: {
+				selfDirection: negligiblePositive,
+				stimulation: strongNegative,
+				hedonism: strongNegative,
+				achievement: weakPositive,
+				power: negligiblePositive,
+				security: strongPositive,
+				conformity: weakPositive,
+				tradition: weakPositive,
+				benevolence: weakPositive,
+				universalism: weakNegative,
+			},
+			low: {
+				selfDirection: negligibleNegative,
+				stimulation: strongPositive,
+				hedonism: strongPositive,
+				achievement: weakNegative,
+				power: negligibleNegative,
+				security: strongNegative,
+				conformity: weakNegative,
+				tradition: weakNegative,
+				benevolence: weakNegative,
+				universalism: weakPositive,
+			},
+		},
+
+		// O‑Facetten
+		O1: {
+			high: {
+				selfDirection: moderatePositive,
+				stimulation: moderatePositive,
+				hedonism: veryWeakNegative,
+				achievement: weakNegative,
+				power: negligibleNegative,
+				security: strongNegative,
+				conformity: moderateNegative,
+				tradition: moderateNegative,
+				benevolence: negligibleNegative,
+				universalism: strongPositive,
+			},
+			low: {
+				selfDirection: moderateNegative,
+				stimulation: moderateNegative,
+				hedonism: veryWeakPositive,
+				achievement: weakPositive,
+				power: negligiblePositive,
+				security: strongPositive,
+				conformity: moderatePositive,
+				tradition: moderatePositive,
+				benevolence: negligiblePositive,
+				universalism: strongNegative,
+			},
+		},
+
+		O2: {
+			high: {
+				selfDirection: moderatePositive,
+				stimulation: moderatePositive,
+				hedonism: weakNegative,
+				achievement: negligibleNegative,
+				power: weakPositive,
+				security: moderateNegative,
+				conformity: moderateNegative,
+				tradition: moderateNegative,
+				benevolence: veryWeakNegative,
+				universalism: moderatePositive,
+			},
+			low: {
+				selfDirection: moderateNegative,
+				stimulation: moderateNegative,
+				hedonism: weakPositive,
+				achievement: negligiblePositive,
+				power: weakNegative,
+				security: moderatePositive,
+				conformity: moderatePositive,
+				tradition: moderatePositive,
+				benevolence: veryWeakPositive,
+				universalism: moderateNegative,
+			},
+		},
+
+		O3: {
+			high: {
+				selfDirection: strongPositive,
+				stimulation: strongPositive,
+				hedonism: weakPositive,
+				achievement: negligiblePositive,
+				power: veryWeakPositive,
+				security: strongNegative,
+				conformity: strongNegative,
+				tradition: strongNegative,
+				benevolence: moderateNegative,
+				universalism: veryWeakPositive,
+			},
+			low: {
+				selfDirection: strongNegative,
+				stimulation: strongNegative,
+				hedonism: weakNegative,
+				achievement: negligibleNegative,
+				power: veryWeakNegative,
+				security: strongPositive,
+				conformity: strongPositive,
+				tradition: strongPositive,
+				benevolence: moderatePositive,
+				universalism: veryWeakNegative,
+			},
+		},
+
+		O4: {
+			high: {
+				selfDirection: strongPositive,
+				stimulation: strongPositive,
+				hedonism: moderatePositive,
+				achievement: neither,
+				power: weakPositive,
+				security: strongNegative,
+				conformity: strongNegative,
+				tradition: strongNegative,
+				benevolence: moderateNegative,
+				universalism: moderatePositive,
+			},
+			low: {
+				selfDirection: strongNegative,
+				stimulation: strongNegative,
+				hedonism: moderateNegative,
+				achievement: neither,
+				power: weakNegative,
+				security: strongPositive,
+				conformity: strongPositive,
+				tradition: strongPositive,
+				benevolence: moderatePositive,
+				universalism: moderateNegative,
+			},
+		},
+
+		// Alt‑Facetten
+		Alt1: {
+			high: {
+				selfDirection: veryWeakNegative,
+				stimulation: weakNegative,
+				hedonism: veryWeakNegative,
+				achievement: moderateNegative,
+				power: strongNegative,
+				security: weakPositive,
+				conformity: moderatePositive,
+				tradition: neither,
+				benevolence: strongPositive,
+				universalism: strongPositive,
+			},
+			low: {
+				selfDirection: veryWeakPositive,
+				stimulation: weakPositive,
+				hedonism: veryWeakPositive,
+				achievement: moderatePositive,
+				power: strongPositive,
+				security: weakNegative,
+				conformity: moderateNegative,
+				tradition: neither,
+				benevolence: strongNegative,
+				universalism: strongNegative,
+			},
+		},
+	};
 	// ───────────────────────────────────────────────────────────────
 	// 2️⃣  Gesamtsumme initialisieren
 	// ───────────────────────────────────────────────────────────────
@@ -715,20 +1399,33 @@ function selectTopThreeMoralValues(facetLevels) {
 	// 3️⃣  Alle Facetten durchlaufen und die passenden Werte addieren
 	// ───────────────────────────────────────────────────────────────
 
+	// 1. Das select-Element holen
+	const selectedWeight = document.getElementById('valueAdjustment');
+
+	// 2. Den aktuell gewählten Wert auslesen (als Zahl)
+	const weightValue = Number(selectedWeight.value); // 10 oder 25
+
 	for (const [facet, level] of Object.entries(facetLevels)) {
-		const adjustment = adjustments[facet]?.[level];
+		// 3. Je nach Gewichtung die passende Anpassungsmatrix wählen
+		console.log(`weightValue: ${weightValue}`)
+		const adjustmentSource = weightValue === 10 ? adjustments10 : adjustments25;
+		const adjustment = adjustmentSource[facet]?.[level];
+
 		if (!adjustment) continue; // kein "high"/"low" oder unbekannte Facette
 
+		// 4. Die Werte aufsummieren
 		for (const key in adjustment) {
-			totals[key] += adjustment[key]; // Summieren
+			totals[key] += adjustment[key];
 		}
 	}
 
 	console.log('Totals:', totals);
 
+	const numberValues = document.getElementById('numberValues');
 	const top = Object.entries(totals)
 		.sort((a, b) => b[1] - a[1]) // absteigend sortieren
-		.slice(0, 5);
+		.slice(0, Number(numberValues.value));
+		console.log('Number of values to show:', numberValues.value);
 
 	console.log('Top:', top);
 
