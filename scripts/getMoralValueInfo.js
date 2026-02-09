@@ -1,6 +1,11 @@
 function getMoralValueInfo(key) {
+	const selectedWeight = document.getElementById('valueAdjustment');
+
+	// 2. Den aktuell gewählten Wert auslesen (als Zahl)
+	const weightValue = Number(selectedWeight.value); // 10 oder 25
+
 	// console.log('getMoralValueInfo called with key: ', key);
-	const mapping = {
+	const mapping10 = {
 		// ---------- 1️⃣  Titel ----------
 		selfDirection: {title: 'SELBSTBESTIMMUNG'},
 		stimulation: {title: 'STIMULATION'},
@@ -66,6 +71,115 @@ function getMoralValueInfo(key) {
 		},
 	};
 
+	const mapping19 = {
+		// ---------- 1️⃣  Titel ----------
+		selfDirectionThought: {title: 'SELBSTBESTIMMUNG DENKEN'},
+		selfDirectionAction: {title: 'SELBSTBESTIMMUNG HANDELN'},
+		stimulation: {title: 'STIMULATION'},
+		hedonism: {title: 'HEDONISMUS'},
+		achievement: {title: 'LEISTUNG'},
+		powerDominance: {title: 'MACHT ÜBER MENSCHEN'},
+		powerRessources: {title: 'MACHT ÜBER RESSOURCEN'},
+		face: {title: 'ANSEHEN'},
+		securityPersonal: {title: 'SICHERHEIT FÜR '},
+		securitySocietal: {title: 'SICHERHEIT DER GESELLSCHAFT'},
+		conformityRules: {title: 'KONFORMITÄT GEGENÜBER REGELN'},
+		conformityInterpersonal: {title: 'KONFORMITÄT GEGENÜBER PERSONEN'},
+		tradition: {title: 'TRADITION'},
+		humility: {title: 'DEMUT'},
+		benevolenceCaring: {title: 'WOHLWOLLEN - FÜRSORGE'},
+		benevolenceDependability: {title: 'WOHLWOLLEN - ZUVERLÄSSIGKEIT'},
+		universalismConcern: {title: 'UNIVERSALISMUS - SORGE'},
+		universalismNature: {title: 'UNIVERSALISMUS - NATUR'},
+		unversalismTolerance: {title: 'UNIVERSALISMUS - TOLERANZ'},
+
+		// ---------- 2️⃣  Beschreibungen ----------
+		selfDirectionThought: {
+			title: 'Selbstbestimmung – Denken',
+			description: 'Freiheit, eigene Ideen und Fähigkeiten zu entwickeln.',
+		},
+		selfDirectionAction: {
+			title: 'Selbstbestimmung – Handeln',
+			description: 'Freiheit, eigene Handlungen zu bestimmen.',
+		},
+		stimulation: {
+			title: 'Stimulation',
+			description: 'Aufregung, Neuheit und Veränderung.',
+		},
+		hedonism: {
+			title: 'Hedonismus',
+			description: 'Vergnügen und sinnliche Befriedigung.',
+		},
+		achievement: {
+			title: 'Leistung',
+			description: 'Erfolg gemäß gesellschaftlichen Normen.',
+		},
+		powerDominance: {
+			title: 'Macht – Dominanz',
+			description: 'Macht durch Ausübung von Kontrolle über Menschen.',
+		},
+		powerRessources: {
+			title: 'Macht – Ressourcen',
+			description: 'Macht durch Kontrolle über materielle und soziale Ressourcen.',
+		},
+		face: {
+			title: 'Ansehen',
+			description:
+				'Sicherheit und Macht durch die Aufrechterhaltung des eigenen öffentlichen Images und die Vermeidung von Demütigungen.',
+		},
+		securityPersonal: {
+			title: 'Sicherheit – Persönlich',
+			description: 'Sicherheit in der unmittelbaren Umgebung.',
+		},
+		securitySocietal: {
+			title: 'Sicherheit – Gesellschaftlich',
+			description: 'Sicherheit und Stabilität in der Gesellschaft insgesamt.',
+		},
+		conformityRules: {
+			title: 'Konformität – Regeln',
+			description: 'Einhaltung von Regeln, Gesetzen und formellen Verpflichtungen.',
+		},
+		conformityInterpersonal: {
+			title: 'Konformität – Zwischenmenschlich',
+			description: 'Vermeidung, andere Menschen zu verärgern oder zu verletzen.',
+		},
+		tradition: {
+			title: 'Tradition',
+			description:
+				' Aufrechterhaltung und Bewahrung kultureller, familiärer oder religiöser Traditionen',
+		},
+		humility: {
+			title: 'Demut',
+			description: 'Anerkennung der eigenen Bedeutungslosigkeit im Gesamtzusammenhang.',
+		},
+		benevolenceCaring: {
+			title: 'Wohlwollen – Fürsorge',
+			description: 'Engagement für das Wohlergehen der Mitglieder der Ingroup.',
+		},
+		benevolenceDependability: {
+			title: 'Wohlwollen – Zuverlässigkeit',
+			description: 'Ein zuverlässiges und vertrauenswürdiges Mitglied der Ingroup sein.',
+		},
+		universalismConcern: {
+			title: 'Universalismus – Sorge',
+			description: 'Engagement für Gleichheit, Gerechtigkeit und Schutz für alle Menschen.',
+		},
+		universalismNature: {
+			title: 'Universalismus – Natur',
+			description: 'Erhaltung der natürlichen Umwelt.',
+		},
+		unversalismTolerance: {
+			title: 'Universalismus – Toleranz',
+			description:
+				'Akzeptanz und Verständnis für diejenigen, die anders sind als man selbst.',
+		},
+	};
+
 	// console.log('Mapping: ', mapping);
-	return mapping[key] || null;
+
+	if (weightValue === 19) {
+		return mapping19[key] || null;
+	} else {
+		return mapping10[key] || null;
+	}
 }

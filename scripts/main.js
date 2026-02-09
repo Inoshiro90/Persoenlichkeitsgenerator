@@ -1,17 +1,21 @@
 // =====================
 // GLOBALE VARIABLEN
 // =====================
+let lastArchetype = null;
 let lastFacet = null;
 let lastAdjectives = null;
 let lastDescriptions = null;
 let lastItems = null;
 let lastBestValues = null;
+let lastArchetypeInfo = null;
+let lastDegree = null;
 
 // =====================
 // GENERATE PERSONALITY
 // =====================
 document.getElementById('btn-generate-personality').addEventListener('click', () => {
 	const archetype = chooseArchetype(); // extern definiert
+	const archetypeInfo = getArchetypeInfo(archetype);
 	const domain = setDomainLevel(archetype); // extern definiert
 	const facet = setFacetLevel(archetype, domain);
 	lastBestValues = selectTopThreeMoralValues(facet);
@@ -19,14 +23,36 @@ document.getElementById('btn-generate-personality').addEventListener('click', ()
 	lastDescriptions = getFacetDescription(facet);
 	lastItems = getFacetItem(facet);
 	lastAdjectives = getFacetAdjective(facet);
+	lastArchetype = archetype;
+	lastArchetypeInfo = archetypeInfo;
+	// lastDegree = getFacetDegree(facet)
 
-	updateOutput();
+	updateOutput(lastArchetypeInfo);
+});
+
+[
+	'showArchetype',
+	'showDegrees',
+	'showAdjectives',
+	'showDescriptions',
+	'showItems',
+	'showBestValues',
+	'valueAdjustment',
+	'numberValues',
+].forEach((id) => {
+	document.getElementById(id).addEventListener('change', () => {
+		if (!lastFacet) return;
+		lastAdjectives = getFacetAdjective(lastFacet);
+		/* wenn die Checkbox geändert wird, müssen wir die Top‑3 erneut berechnen */
+		lastBestValues = selectTopThreeMoralValues(lastFacet);
+		updateOutput(lastArchetypeInfo);
+	});
 });
 
 // =====================
 // UPDATE OUTPUT
 // =====================
-function updateOutput() {
+function updateOutput(archetypeInfo) {
 	const output = document.getElementById('output');
 	output.innerHTML = '';
 
@@ -35,6 +61,12 @@ function updateOutput() {
 			// nur weiter wenn etwas vorhanden ist
 			if (!lastAdjectives || !lastDescriptions || !lastItems) return;
 		}
+	}
+	if (document.getElementById('showArchetype').checked) {
+		output.innerHTML += `
+			<h4>Archetyp</h4>
+			<p><b>${archetypeInfo.name}</b></p>
+			<p>${archetypeInfo.description}</p>		`;
 	}
 
 	if (document.getElementById('showAdjectives').checked) {
@@ -73,21 +105,22 @@ function updateOutput() {
 			if (document.getElementById('showBestValues').checked && lastBestValues) {
 				const html = lastBestValues
 					.map((key) => {
-						// console.log('Key: ', key);
-						const info = getMoralValueInfo(key); // <‑ hier wird die Funktion benutzt
-						if (!info) return console.log('kein Key gefunden ')`<li>${key}</li>`; // Fallback, falls kein Mapping gefunden
+						const info = getMoralValueInfo(key);
+
+						// Fallback, falls kein Mapping gefunden wurde
+						if (!info) return `<li>Kein Mapping für "${key}"</li>`;
 
 						return `
-        <p>
-          <strong>${info.title}</strong><br>
-          ${info.description}
-        </p>`;
+                <p>
+                    <strong>${info.title}</strong><br>
+                    ${info.description}
+                </p>`;
 					})
 					.join('');
 
 				output.innerHTML += `
-      <h4>Werte</h4>
-      <p>${html}</p>
+        <h4>Werte</h4>
+        <div>${html}</div>
     `;
 			}
 		}
@@ -117,19 +150,3 @@ function updateOutput() {
 // =====================
 // DYNAMISCHES UMSCHALTEN DER CHECKBOXEN
 // =====================
-[
-	'showAdjectives',
-	'showDescriptions',
-	'showItems',
-	'showBestValues',
-	'valueAdjustment',
-	'numberValues',
-].forEach((id) => {
-	document.getElementById(id).addEventListener('change', () => {
-		if (!lastFacet) return;
-		lastAdjectives = getFacetAdjective(lastFacet);
-		/* wenn die Checkbox geändert wird, müssen wir die Top‑3 erneut berechnen */
-		lastBestValues = selectTopThreeMoralValues(lastFacet);
-		updateOutput();
-	});
-});

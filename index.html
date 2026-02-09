@@ -35,6 +35,10 @@
 		<div class="mb-3">
 			<label class="form-label"><b>Was soll angezeigt werden?</b></label>
 			<div class="form-check">
+				<input class="form-check-input display-option" type="checkbox" id="showArchetype" checked>
+				<label class="form-check-label" for="showArchetype">Archetyp</label>
+			</div>
+			<div class="form-check">
 				<input class="form-check-input display-option" type="checkbox" id="showDegrees" checked>
 				<label class="form-check-label" for="showDegrees">Steigerungspartikel</label>
 			</div>
@@ -60,6 +64,7 @@
 				<select id="valueAdjustment" class="form-select mb-4" style="width:auto">
 					<option value="10">10er</option>
 					<option value="25">25er</option>
+					<option value="19">19er</option>
 				</select>
 			</div>
 			<div class="col-md-2 form-group">
@@ -90,7 +95,9 @@
 	<script src="scripts/facetArray.js"></script>
 	<script src="scripts/main.js"></script>
 	<script src="scripts/chooseArchetype.js"></script>
+
 	<script src="scripts/setDomainLevel.js"></script>
+	<script src="scripts/getArchetypeInfo.js"></script>
 	<script src="scripts/setFacetLevel.js"></script>
 	<script src="scripts/getFacetDescription.js"></script>
 	<script src="scripts/getFacetAdjective.js"></script>
