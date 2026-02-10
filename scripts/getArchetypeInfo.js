@@ -49,6 +49,10 @@ function getArchetypeInfo(archetype) {
 			name: 'Narr',
 			description: 'Beschreibung Narr',
 		},
+		none: {
+			name: 'Kein Archetyp',
+			description: 'Es wurde kein Archetyp ausgewählt.'
+		}
 	};
 	return archetypeMapping[archetype];
 }

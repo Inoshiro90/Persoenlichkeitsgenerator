@@ -9,18 +9,22 @@
 // }
 
 function chooseArchetype() {
-	const select = document.getElementById("dropdown-archetype");
+	const select = document.getElementById('dropdown-archetype');
 	const selectedOption = select.options[select.selectedIndex].id;
 
-	if (selectedOption === "random") {
+	if (selectedOption === 'random') {
 		const archetypes = Array.from(select.options)
-			.map(opt => opt.id)
-			.filter(id => id !== "random" && id !== "none");
+			.map((opt) => opt.id)
+			.filter((id) => id !== 'random' && id !== 'none');
 		const randomIndex = Math.floor(Math.random() * archetypes.length);
-		console.log("Archetyp: ", archetypes[randomIndex]);
+		console.log('Archetyp: ', archetypes[randomIndex]);
 		return archetypes[randomIndex];
 	}
 
-	console.log("Archetyp: ", selectedOption);
+	if (selectedOption === 'none') {
+		return 'none';
+	}
+
+	console.log('Archetyp: ', selectedOption);
 	return selectedOption;
 }
