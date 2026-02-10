@@ -112,9 +112,15 @@ function updateOutput(archetypeInfo) {
 
 						return `
                 <p>
-                    <strong>${info.title}</strong><br>
+                    <h5>${info.title}</h5>
                     ${info.description}
-                </p>`;
+                </p>
+				<p> <b>Findet es wichtig,</b>
+				<ul>
+				<li>${info.item1}</li>
+				<li>${info.item2}</li>
+				<li>${info.item3}</li></ul>
+				</p>`;
 					})
 					.join('');
 
