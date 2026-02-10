@@ -66,7 +66,8 @@ function updateOutput(archetypeInfo) {
 		output.innerHTML += `
 			<h4>Archetyp</h4>
 			<p><b>${archetypeInfo.name}</b></p>
-			<p>${archetypeInfo.description}</p>		`;
+			<p>${archetypeInfo.description}</p>		
+			<hr>`;
 	}
 
 	if (document.getElementById('showAdjectives').checked) {
@@ -125,6 +126,7 @@ function updateOutput(archetypeInfo) {
 					.join('');
 
 				output.innerHTML += `
+				<hr>
         <h4>Werte</h4>
         <div>${html}</div>
     `;
