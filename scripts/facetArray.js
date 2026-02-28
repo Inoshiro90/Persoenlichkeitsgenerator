@@ -216,7 +216,7 @@ const facetArray = [
 		descriptionHigh:
 			'ist in der Regel bereit, nach schlechter Behandlung durch andere wieder zu vertrauen und freundschaftliche Beziehungen wieder aufzubauen',
 		adjectiveHigh: 'verzeihend',
-		itemHigh1: 'hegt selten Groll – selbst gegenüber Personen, die stark geschadet haben',
+		itemHigh1: 'hegt selten Groll, selbst gegenüber Personen, die stark geschadet haben',
 		itemHigh2: 'verfolgt gegenüber unfairer Behandlung das Prinzip „vergeben und vergessen“',
 		itemHigh3: 'bemüht sich auch nach Verletzungen darum, Vertrauen wieder aufzubauen',
 		itemHigh4: 'findet meist die Bereitschaft, anderen aufrichtig zu vergeben',

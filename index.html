@@ -14,91 +14,160 @@
 
 <body>
 	<div class="container-fluid">
-		<h1><b>Persönlichkeitsgenerator</b></h1>
-		<p><b>Archetyp:</b></p>
-		<select class="form-select mb-4" style="width:auto" id="dropdown-archetype" name="archetype">
-			<option id="none">Keiner</option>
-			<option selected id="random">Zufall</option>
-			<option id="idealist">Idealist</option>
-			<option id="realist">Realist</option>
-			<option id="caregiver">Fürsorger</option>
-			<option id="warrior">Krieger</option>
-			<option id="seeker">Suchender</option>
-			<option id="lover">Liebhaber</option>
-			<option id="creator">Schöpfer</option>
-			<option id="revolutionary">Revolutionär</option>
-			<option id="sage">Weiser</option>
-			<option id="magician">Magier</option>
-			<option id="ruler">Herrscher</option>
-			<option id="jester">Narr</option>
-		</select>
 		<div class="mb-3">
-			<label class="form-label"><b>Was soll angezeigt werden?</b></label>
-			<div class="form-check">
-				<input class="form-check-input display-option" type="checkbox" id="showArchetype" checked>
-				<label class="form-check-label" for="showArchetype">Archetyp</label>
+			<div class="row">
+				<div class="col">
+					<h1><b>Persönlichkeitsgenerator</b></h1>
+					<p><b>Archetyp:</b></p>
+					<select class="form-select mb-4" style="width:auto" id="dropdown-archetype" name="archetype">
+						<option id="none">Keiner</option>
+						<option selected id="random">Zufall</option>
+						<option id="idealist">Idealist</option>
+						<option id="realist">Realist</option>
+						<option id="caregiver">Fürsorger</option>
+						<option id="warrior">Krieger</option>
+						<option id="seeker">Suchender</option>
+						<option id="lover">Liebhaber</option>
+						<option id="creator">Schöpfer</option>
+						<option id="revolutionary">Revolutionär</option>
+						<option id="sage">Weiser</option>
+						<option id="magician">Magier</option>
+						<option id="ruler">Herrscher</option>
+						<option id="jester">Narr</option>
+					</select>
+				</div>
 			</div>
-			<div class="form-check">
-				<input class="form-check-input display-option" type="checkbox" id="showDegrees" checked>
-				<label class="form-check-label" for="showDegrees">Steigerungspartikel</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input display-option" type="checkbox" id="showAdjectives" checked>
-				<label class="form-check-label" for="showAdjectives">Adjektive</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input display-option" type="checkbox" id="showDescriptions" checked>
-				<label class="form-check-label" for="showDescriptions">Beschreibungen</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input display-option" type="checkbox" id="showItems" checked>
-				<label class="form-check-label" for="showItems">Items</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input display-option" type="checkbox" id="showBestValues" checked>
-				<label class="form-check-label" for="showBestValues">Werte</label>
+		</div>
+		<div class="row mb-4">
+			<div class="col-md-4 col-sm-12">
+				<label class="form-label"><b>Was soll von Archetypen angezeigt werden?</b></label>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetype" checked>
+					<label class="form-check-label" for="showArchetype">Archetyp</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeAliases" checked>
+					<label class="form-check-label" for="showArchetype">Alias</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeDescription"
+						checked>
+					<label class="form-check-label" for="showArchetype">Beschreibung</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeCoreIdentity"
+						checked>
+					<label class="form-check-label" for="showArchetype">Kernidentität</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypePerception" checked>
+					<label class="form-check-label" for="showArchetype">Wahrnehmung</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeLifePlot" checked>
+					<label class="form-check-label" for="showArchetype">Lebensmuster</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox"
+						id="showArchetypeFulfillingActivities" checked>
+					<label class="form-check-label" for="showArchetype">Erfüllende Tätigkeiten</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeHappinessSource"
+						checked>
+					<label class="form-check-label" for="showArchetype">Glücksquellen</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeLeadershipStyle"
+						checked>
+					<label class="form-check-label" for="showArchetype">Führungsstil</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeHowOthersSeeThem"
+						checked>
+					<label class="form-check-label" for="showArchetype">Fremdwahrnehmung</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeShadowTendencies"
+						checked>
+					<label class="form-check-label" for="showArchetype">Schattenseiten</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeUnderlyingFear"
+						checked>
+					<label class="form-check-label" for="showArchetype">Tiefe Ängste</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showArchetypeGrowthAreas"
+						checked>
+					<label class="form-check-label" for="showArchetype">Wachstumsfelder</label>
+				</div>
 			</div>
 			<br>
-			<div class="col-md-2 form-group">
-				<label for="valueAdjustment"><strong>Gewichtung der Werte</strong></label>
-				<select id="valueAdjustment" class="form-select mb-4" style="width:auto">
-					<!-- <option value="10">10er</option>
-					<option value="25">25er</option> -->
-					<option value="19" selected>19 Werte</option>
-				</select>
+			<div class="col-md-4 col-sm-12">
+				<label class="form-label"><b>Was soll von HEXACO angezeigt werden?</b></label>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showDegrees" checked>
+					<label class="form-check-label" for="showDegrees">Steigerungspartikel</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showAdjectives" checked>
+					<label class="form-check-label" for="showAdjectives">Adjektive</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showDescriptions" checked>
+					<label class="form-check-label" for="showDescriptions">Beschreibungen</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showItems" checked>
+					<label class="form-check-label" for="showItems">Items</label>
+				</div>
 			</div>
-			<div class="col-md-2 form-group">
-				<label for="numberValues"><strong>Anzahl der angezeigten Werte</strong></label>
-				<select id="numberValues" class="form-select mb-4" style="width:auto">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3" selected>3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-
-				</select>
+			<br>
+			<div class="col-md-4 col-sm-12">
+				<label class="form-label"><b>Was soll von Werten angezeigt werden?</b></label>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showBestValues" checked>
+					<label class="form-check-label" for="showBestValues">Höchste Werte</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showWorstValues" checked>
+					<label class="form-check-label" for="showWorstValues">Niedrigste Werte</label>
+				</div>
+				<br>
+				<div class="col-md-2 form-group">
+					<label for="numberValues"><strong>Anzahl der angezeigten Werte</strong></label>
+					<select id="numberValues" class="form-select mb-4" style="width:auto">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3" selected>3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select>
+				</div>
 			</div>
-
 		</div>
-		<button id="btn-generate-personality" class="btn btn-secondary mb-4">
-			Generieren
-		</button>
-		<h2>Persönlichkeitsmerkmale</h2>
-		<div class="container-fluid" id="output"></div>
+	</div>
+	<button id="btn-generate-personality" class="btn btn-secondary mb-4">
+		Generieren
+	</button>
+	<h2>Persönlichkeitsmerkmale</h2>
+	<div class="container-fluid" id="output"></div>
 
 	</div>
 	<script src="scripts/archetypeArray.js"></script>
