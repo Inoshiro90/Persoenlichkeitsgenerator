@@ -90,7 +90,7 @@ function getMoralValueInfo(key) {
 			description:
 				'Vormachtsstellung beschreibt das Streben nach sozialer Dominanz, Führungsanspruch und der Fähigkeit, andere zu lenken und zu kontrollieren. Personen mit diesem Wert schätzen klare Hierarchien, Autorität und die Möglichkeit, Entscheidungen für andere zu treffen. Er umfasst Führung, Einflussnahme und das Streben nach gesellschaftlicher Kontrolle.',
 		},
-		powerRessources: {
+		powerResources: {
 			title: 'Ressourcenkontrolle',
 			original: 'Power: resources',
 			basic_dichotomy: 'Selbstschutz und Angstvermeidung',

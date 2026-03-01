@@ -126,48 +126,42 @@
 			<br>
 			<div class="col-md-4 col-sm-12">
 				<label class="form-label"><b>Was soll von Werten angezeigt werden?</b></label>
-				<div class="form-check">
-					<input class="form-check-input display-option" type="checkbox" id="showBestValues" checked>
-					<label class="form-check-label" for="showBestValues">Höchste Werte</label>
+				<!-- <div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showWertArchetyp" checked>
+					<label class="form-check-label" for="showWertArchetyp">Werte-Archetyp</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input display-option" type="checkbox" id="showWorstValues" checked>
-					<label class="form-check-label" for="showWorstValues">Niedrigste Werte</label>
+					<input class="form-check-input display-option" type="checkbox" id="showWertKombination" checked>
+					<label class="form-check-label" for="showWertKombination">Werte-Kombination</label>
+				</div> -->
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showStrongPositive" checked>
+					<label class="form-check-label" for="showStrongPositive">Stark positive Werte</label>
 				</div>
-				<br>
-				<div class="col-md-2 form-group">
-					<label for="numberValues"><strong>Anzahl der angezeigten Werte</strong></label>
-					<select id="numberValues" class="form-select mb-4" style="width:auto">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3" selected>3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
-						<option value="15">15</option>
-						<option value="16">16</option>
-						<option value="17">17</option>
-						<option value="18">18</option>
-						<option value="19">19</option>
-						<option value="20">20</option>
-					</select>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showModeratePositive" checked>
+					<label class="form-check-label" for="showModeratePositive">Eher positive Werte</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showNeutral" checked>
+					<label class="form-check-label" for="showNeutral">Neutrale Werte</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showModerateNegative" checked>
+					<label class="form-check-label" for="showModerateNegative">Eher negative Werte</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input display-option" type="checkbox" id="showStrongNegative" checked>
+					<label class="form-check-label" for="showStrongNegative">Stark negative Werte</label>
 				</div>
 			</div>
 		</div>
+		<button id="btn-generate-personality" class="btn btn-secondary mb-4">
+			Generieren
+		</button>
+		<h2>Persönlichkeitsmerkmale</h2>
+		<div class="container-fluid" id="output"></div>
 	</div>
-	<button id="btn-generate-personality" class="btn btn-secondary mb-4">
-		Generieren
-	</button>
-	<h2>Persönlichkeitsmerkmale</h2>
-	<div class="container-fluid" id="output"></div>
 
 	</div>
 	<script src="scripts/archetypeArray.js"></script>
@@ -183,7 +177,11 @@
 	<script src="scripts/getFacetItem.js"></script>
 	<script src="scripts/getFacetDegree.js"></script>
 	<script src="scripts/getMoralValueInfo.js"></script>
-	<script src="scripts/selectTopThreeMoralValues.js"></script>
+	<script src="scripts/valueArchetypesText.js"></script>
+	<script src="scripts/valueArchetypes.js"></script>
+	<script src="scripts/singleValueText.js"></script>
+	<script src="scripts/singleValueCombination.js"></script>
+	<script src="scripts/computeValueProfile.js"></script>
 
 </body>
 
