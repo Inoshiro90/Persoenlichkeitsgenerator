@@ -74,241 +74,276 @@ document.getElementById('btn-generate-personality').addEventListener('click', ()
 function updateOutput(archetypeInfo) {
 	const output = document.getElementById('output');
 	output.innerHTML = '';
-	{
-		{
-			// nur weiter wenn etwas vorhanden ist
-			if (!lastAdjectives || !lastDescriptions || !lastItems) return;
-		}
-	}
 
-	if (lastArchetype === 'none') {
+	// Early return if data not available
+	if (!lastAdjectives || !lastDescriptions || !lastItems) return;
+
+	const hexacoDomains = [
+		'Ehrlichkeit-Bescheidenheit',
+		'Emotionalität',
+		'Extraversion',
+		'Verträglichkeit',
+		'Gewissenhaftigkeit',
+		'Offenheit für Erfahrungen',
+		'Altruismus',
+	];
+
+	// ─────────────────────────────────────────────────
+	// SECTION: Archetype Information
+	// ─────────────────────────────────────────────────
+	if (lastArchetype !== 'none') {
 		if (document.getElementById('showArchetype').checked) {
 			output.innerHTML += `
-			<h3>Archetyp</h3>
-			<h4>${archetypeInfo.name}</h4> `;
-		}
-		if (document.getElementById('showArchetypeDescription').checked) {
-			output.innerHTML += `
-			<h5>Beschreibung:</h5>
-			<p>${archetypeInfo.description}</p>`;
-		}
-		output.innerHTML += `<hr>`;
-	} else {
-		if (document.getElementById('showArchetype').checked) {
-			output.innerHTML += `
-			<h3>Archetyp</h3>
-			<h4>${archetypeInfo.name}</h4>`;
-		}
-		if (document.getElementById('showArchetypeAliases').checked) {
-			output.innerHTML += `
-			<h5>Aliases</h5>
-			<p>${Object.entries(lastArchetypeInfo.aliases)
-				.map(([k, v]) => `${v}`)
-				.join(', ')}</p>`;
-		}
-		if (document.getElementById('showArchetypeDescription').checked) {
-			output.innerHTML += `
-			<h5>Beschreibung</h5>
-			<p>${archetypeInfo.description}</p>
+				<div class="card mb-4">
+					<div class="card-body">
+						<h3>${archetypeInfo.name}</h3>
+					</div>
+				</div>
 			`;
 		}
+
+		// Aliases
+		if (document.getElementById('showArchetypeAliases').checked) {
+			const aliases = Object.entries(lastArchetypeInfo.aliases)
+				.map(([k, v]) => v)
+				.join(', ');
+			output.innerHTML += `
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Alias</h4>
+						<p class="text-secondary">${aliases}</p>
+					</div>
+				</div>
+			`;
+		}
+
+		// Description
+		if (document.getElementById('showArchetypeDescription').checked) {
+			output.innerHTML += `
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Beschreibung</h4>
+						<p class="text-secondary">${archetypeInfo.description}</p>
+					</div>
+				</div>
+			`;
+		}
+
+		// Core Identity
 		if (document.getElementById('showArchetypeCoreIdentity').checked) {
 			output.innerHTML += `
-			<h5>Kernidentität</h5>	
-			<p>${archetypeInfo.core_identity}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Kernidentität</h4>
+						<p class="text-secondary">${archetypeInfo.core_identity}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Perception
 		if (document.getElementById('showArchetypePerception').checked) {
 			output.innerHTML += `
-			<h5>Wahrnehmung</h5>	
-			<p>${archetypeInfo.perception}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Wahrnehmung</h4>
+						<p class="text-secondary">${archetypeInfo.perception}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Life Plot
 		if (document.getElementById('showArchetypeLifePlot').checked) {
 			output.innerHTML += `
-			<h5>Lebensmuster</h5>	
-			<p>${archetypeInfo.life_plot}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Lebensmuster</h4>
+						<p class="text-secondary">${archetypeInfo.life_plot}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Fulfilling Activities
 		if (document.getElementById('showArchetypeFulfillingActivities').checked) {
 			output.innerHTML += `
-			<h5>Erfüllende Tätigkeiten</h5>	
-			<p>${archetypeInfo.fulfilling_activities}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Erfüllende Tätigkeiten</h4>
+						<p class="text-secondary">${archetypeInfo.fulfilling_activities}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Happiness Source
 		if (document.getElementById('showArchetypeHappinessSource').checked) {
 			output.innerHTML += `
-			<h5>Glücksquellen</h5>	
-			<p>${archetypeInfo.happiness_source}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Glücksquellen</h4>
+						<p class="text-secondary">${archetypeInfo.happiness_source}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Leadership Style
 		if (document.getElementById('showArchetypeLeadershipStyle').checked) {
 			output.innerHTML += `
-			<h5>Führungsstil</h5>	
-			<p>${archetypeInfo.leadership_style}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Führungsstil</h4>
+						<p class="text-secondary">${archetypeInfo.leadership_style}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// How Others See Them
 		if (document.getElementById('showArchetypeHowOthersSeeThem').checked) {
 			output.innerHTML += `
-			<h5>Fremdwahrnehmung</h5>	
-			<p>${archetypeInfo.how_others_see_them}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Fremdwahrnehmung</h4>
+						<p class="text-secondary">${archetypeInfo.how_others_see_them}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Shadow Tendencies
 		if (document.getElementById('showArchetypeShadowTendencies').checked) {
 			output.innerHTML += `
-			<h5>Schattenseiten</h5>	
-			<p>${archetypeInfo.shadow_tendencies}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Schattenseiten</h4>
+						<p class="text-secondary">${archetypeInfo.shadow_tendencies}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Underlying Fear
 		if (document.getElementById('showArchetypeUnderlyingFear').checked) {
 			output.innerHTML += `
-			<h5>Tiefe Ängste</h5>	
-			<p>${archetypeInfo.underlying_fear}</p>`;
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Tiefe Ängste</h4>
+						<p class="text-secondary">${archetypeInfo.underlying_fear}</p>
+					</div>
+				</div>
+			`;
 		}
+
+		// Growth Areas
 		if (document.getElementById('showArchetypeGrowthAreas').checked) {
-			output.innerHTML += `
-			<h5>Wachstumsfelder</h5>	
-			<ul>${Object.entries(lastArchetypeInfo.growth_areas)
+			const growthAreas = Object.entries(lastArchetypeInfo.growth_areas)
 				.map(([k, v]) => `<li>${v}</li>`)
-				.join('')}</ul>`;
+				.join('');
+			output.innerHTML += `
+				<div class="card mb-4">
+					<div class="card-body">
+						<h4>Wachstumsfelder</h4>
+						<ul class="text-secondary">${growthAreas}</ul>
+					</div>
+				</div>
+			`;
 		}
-		output.innerHTML += `<hr>`;
 	}
-	output.innerHTML += `<h3>HEXACO</h3>`;
+
+	// ─────────────────────────────────────────────────
+	// SECTION: HEXACO
+	// ─────────────────────────────────────────────────
+	output.innerHTML += `<h2 class="mt-6">HEXACO</h2>`;
+
+	// Adjectives
 	if (document.getElementById('showAdjectives').checked) {
 		const adjList = Object.values(lastAdjectives);
-
-		// Gruppierung in Blöcke von 4 Einträgen
 		const groupSize = 4;
 		const groups = [];
 		for (let i = 0; i < adjList.length; i += groupSize) {
 			groups.push(adjList.slice(i, i + groupSize));
 		}
 
-		output.innerHTML += `<h4>Adjektive</h4>`;
-
-		// Liste der Hexaco-Domänen in Reihenfolge
-		const hexacoDomains = [
-			'Ehrlichkeit-Bescheidenheit',
-			'Emotionalität',
-			'Extraversion',
-			'Verträglichkeit',
-			'Gewissenhaftigkeit',
-			'Offenheit für Erfahrungen',
-			'Altruismus',
-		];
-
+		output.innerHTML += `<h3 class="mt-4">Adjektive</h3>`;
 		groups.forEach((group, index) => {
-			// if (index > 0) {
-			// 	output.innerHTML += '<br>';
-			// }
-
-			// Füge die zugehörige Domain als <h5> ein
 			if (hexacoDomains[index]) {
-				output.innerHTML += `<h5>${hexacoDomains[index]}</h5>`;
-				// Füge die Liste der Adjektive in einem <p>-Tag mit <ul> ein
+				const adjectives = group.map((adj) => `<li>${adj}</li>`).join('');
 				output.innerHTML += `
-				<p>
-					<ul>
-						${group.map((adj) => `<li>${adj}</li>`).join('')}
-					</ul>
-				</p>
-			`;
+					<div class="card mb-4">
+						<h4 class="card-header">
+							${hexacoDomains[index]}
+						</h4>
+						<div class="card-body">
+							<ul class="text-secondary">${adjectives}</ul>
+						</div>
+					</div>
+				`;
 			}
 		});
 	}
+
+	// Descriptions
 	if (document.getElementById('showDescriptions').checked) {
 		const entries = Object.entries(lastDescriptions);
-		output.innerHTML += `<hr>`;
-		// Gruppierung in Blöcke von 4 Einträgen
 		const groupSize = 4;
 		const groups = [];
 		for (let i = 0; i < entries.length; i += groupSize) {
 			groups.push(entries.slice(i, i + groupSize));
 		}
 
-		output.innerHTML += `<h4>Beschreibung</h4>`;
-
-		// Liste der Hexaco-Domänen in Reihenfolge
-		const hexacoDomains = [
-			'Ehrlichkeit-Bescheidenheit',
-			'Emotionalität',
-			'Extraversion',
-			'Verträglichkeit',
-			'Gewissenhaftigkeit',
-			'Offenheit für Erfahrungen',
-			'Altruismus',
-		];
-
+		output.innerHTML += `<h3 class="mt-4">Beschreibungen</h3>`;
 		groups.forEach((group, index) => {
-			// if (index > 0) {
-			// 	output.innerHTML += '<br>';
-			// }
-
-			// Füge die zugehörige Domain als <h5> ein
 			if (hexacoDomains[index]) {
-				output.innerHTML += `<h5>${hexacoDomains[index]}</h5>`;
-				// Füge die Liste der Beschreibungen in einem <p>-Tag mit <ul> ein
+				const descriptions = group.map(([k, v]) => `<li>${v}</li>`).join('');
 				output.innerHTML += `
-				<p>
-					<ul>
-						${group.map(([k, v]) => `<li>${v}</li>`).join('')}
-					</ul>
-				</p>
-			`;
+					<div class="card mb-4">
+						<h4 class="card-header">
+							${hexacoDomains[index]}
+						</h4>
+						<div class="card-body">
+							<ul class="text-secondary">${descriptions}</ul>
+						</div>
+					</div>
+				`;
 			}
 		});
 	}
 
+	// Items
 	if (document.getElementById('showItems').checked) {
 		const entries = Object.entries(lastItems);
-		output.innerHTML += `<hr>`;
-		// Gruppierung in Blöcke von 4 Einträgen
 		const groupSize = 4;
 		const groups = [];
 		for (let i = 0; i < entries.length; i += groupSize) {
 			groups.push(entries.slice(i, i + groupSize));
 		}
 
-		output.innerHTML += `<h4>Items</h4>`;
-
-		// Liste der Hexaco-Domänen in Reihenfolge
-		const hexacoDomains = [
-			'Ehrlichkeit-Bescheidenheit',
-			'Emotionalität',
-			'Extraversion',
-			'Verträglichkeit',
-			'Gewissenhaftigkeit',
-			'Offenheit für Erfahrungen',
-			'Altruismus',
-		];
-
+		output.innerHTML += `<h3 class="mt-4">Items</h3>`;
 		groups.forEach((group, index) => {
-			// if (index > 0) {
-			// 	output.innerHTML += '<br>';
-			// }
-			// Füge die zugehörige Domain als <h5> ein
 			if (hexacoDomains[index]) {
-				output.innerHTML += `<h5>${hexacoDomains[index]}</h5>`;
-				// Füge die Liste der Beschreibungen in einem <p>-Tag mit <ul> ein
+				const items = group.map(([k, v]) => `<li>${v}</li>`).join('');
 				output.innerHTML += `
-				<p>
-					<ul>
-						${group.map(([k, v]) => `<li>${v}</li>`).join('')}
-					</ul>
-				</p>
-			`;
+					<div class="card mb-4">
+						<h4 class="card-header">
+							${hexacoDomains[index]}
+						</h4>
+						<div class="card-body">
+							<ul class="text-secondary">${items}</ul>
+						</div>
+					</div>
+				`;
 			}
 		});
 	}
 
-	{
-		const checkbox = document.getElementById('showWertArchetyp');
-		if (checkbox && checkbox.checked && lastArchetypErgebnis) {
-			output.innerHTML += renderBereichsArchetyp(lastArchetypErgebnis);
-		}
-	}
+	// ─────────────────────────────────────────────────
+	// SECTION: Moral Values
+	// ─────────────────────────────────────────────────
+	output.innerHTML += `<h2 class="mt-6">Werte</h2>`;
 
-	{
-		const checkbox = document.getElementById('showWertKombination');
-		if (checkbox && checkbox.checked && lastKombinationsErgebnis) {
-			output.innerHTML += renderSingleValueCombination(lastKombinationsErgebnis);
-		}
-	}
-
-	output.innerHTML += `<hr><h3>Werte</h3>`;
 	if (lastValueProfile) {
 		const valueOrder = [
 			'selfDirectionThought',
@@ -338,26 +373,35 @@ function updateOutput(archetypeInfo) {
 				stufe: 'STARK_POSITIV',
 				checkboxId: 'showStrongPositive',
 				label: 'Stark positive Werte',
+				// badge: 'badge-success',
 			},
 			{
 				stufe: 'MODERAT_POSITIV',
 				checkboxId: 'showModeratePositive',
 				label: 'Eher positive Werte',
+				// badge: 'badge-info',
 			},
-			{stufe: 'NEUTRAL', checkboxId: 'showNeutral', label: 'Neutrale Werte'},
+			{
+				stufe: 'NEUTRAL',
+				checkboxId: 'showNeutral',
+				label: 'Neutrale Werte',
+				// badge: 'badge-neutral',
+			},
 			{
 				stufe: 'MODERAT_NEGATIV',
 				checkboxId: 'showModerateNegative',
 				label: 'Eher negative Werte',
+				// badge: 'badge-warning',
 			},
 			{
 				stufe: 'STARK_NEGATIV',
 				checkboxId: 'showStrongNegative',
 				label: 'Stark negative Werte',
+				// badge: 'badge-error',
 			},
 		];
 
-		// Gruppiere Werte nach Stufe, absteigend nach z-Score sortiert
+		// Group values by level
 		const gruppen = {};
 		for (const {stufe} of stufenConfig) gruppen[stufe] = [];
 		for (const key of valueOrder) {
@@ -368,24 +412,41 @@ function updateOutput(archetypeInfo) {
 			gruppen[stufe].sort((a, b) => b.z - a.z);
 		}
 
-		// Hilfsfunktion: rendere einen einzelnen Wert im alten Format
+		// Helper: Render single value block
 		function renderValueBlock(key) {
 			const info = getMoralValueInfo(key);
-			if (!info) return `<p>Kein Mapping für "${key}"</p>`;
+			if (!info) return `<p class="text-error">Kein Mapping für "${key}"</p>`;
 
 			let block = `
-				<div class="value border p-2 mb-2">
-					<h5>${info.title}</h5>
-					<h6>Dichotomie</h6> 
-					<p>${info.basic_dichotomy || ''}</p>
-					<h6>Ausrichtung</h6> 
-					<p>${info.social_vs_personal || ''}</p>
-					<h6>Höhere Wert-Ordnung</h6> 
-					<p>${info.higher_order_value || ''}</p>
-					<h6>Zitat:</h6> 
-					<p>"${info.quote || ''}"</p>
-					<h6>Beschreibung</h6> 
-					<p>${info.description || ''}</p>`;
+				<div class="card mb-4">
+				<h4 class= "mb-4 card-header">${info.title}</h4>
+					<div class="card-body">
+						
+						
+						<div class="mb-4">
+							<h5 class="text-primary">Dichotomie</h5>
+							<p class="text-secondary">${info.basic_dichotomy || ''}</p>
+						</div>
+
+						<div class="mb-4">
+							<h5 class="text-primary">Ausrichtung</h5>
+							<p class="text-secondary">${info.social_vs_personal || ''}</p>
+						</div>
+
+						<div class="mb-4">
+							<h5 class="text-primary">Höhere Wert-Ordnung</h5>
+							<p class="text-secondary">${info.higher_order_value || ''}</p>
+						</div>
+
+						<div class="mb-4">
+							<h5 class="text-primary">Zitat</h5>
+							<p class="text-secondary"><em>"${info.quote || ''}"</em></p>
+						</div>
+
+						<div class="mb-4">
+							<h5 class="text-primary">Beschreibung</h5>
+							<p class="text-secondary">${info.description || ''}</p>
+						</div>`;
 
 			const items = [];
 			if (Array.isArray(info.items)) {
@@ -397,27 +458,98 @@ function updateOutput(archetypeInfo) {
 					items.push(it);
 				}
 			}
+
 			if (items.length) {
-				block += `<h6>Aspekte</h6><ul>`;
-				block += items.map((it) => `<li>${it}.</li>`).join('');
-				block += `</ul>`;
+				block += `
+					<div class="mb-4">
+						<h5 class="text-primary">Aspekte</h5>
+						<ul class="text-secondary">`;
+				block += items.map((it) => `<li>${it}</li>`).join('');
+				block += `
+						</ul>
+					</div>`;
 			}
-			block += `</div>`;
+
+			block += `
+					</div>
+				</div>`;
 			return block;
 		}
 
-		// Jede Stufe separat rendern, nur wenn Checkbox aktiv und Werte vorhanden
+		// Render each value level
 		for (const {stufe, checkboxId, label} of stufenConfig) {
 			const checkbox = document.getElementById(checkboxId);
 			if (!checkbox || !checkbox.checked) continue;
 			const werte = gruppen[stufe];
 			if (werte.length === 0) continue;
 
+			output.innerHTML += `
+				<h3 class="mt-6">
+					<span>${label}</span>
+					<span class="text-muted"> (${werte.length})</span>
+				</h3>
+			`;
+
 			const html = werte.map(({key}) => renderValueBlock(key)).join('');
-			output.innerHTML += `<h4>${label}</h4>${html}`;
+			output.innerHTML += html;
+		}
+	}
+
+	// Optional: Render value archetypes if implemented
+	{
+		const checkbox = document.getElementById('showWertArchetyp');
+		if (checkbox && checkbox.checked && lastArchetypErgebnis) {
+			output.innerHTML += renderBereichsArchetyp(lastArchetypErgebnis);
+		}
+	}
+
+	// Optional: Render value combinations if implemented
+	{
+		const checkbox = document.getElementById('showWertKombination');
+		if (checkbox && checkbox.checked && lastKombinationsErgebnis) {
+			output.innerHTML += renderSingleValueCombination(lastKombinationsErgebnis);
 		}
 	}
 }
+
+(function () {
+	const html = document.documentElement;
+	const toggle = document.getElementById('themeToggle');
+	if (!toggle) return;
+
+	// Determine initial theme: localStorage > OS preference > light
+	function getInitialTheme() {
+		const saved = localStorage.getItem('ds-theme');
+		if (saved === 'dark' || saved === 'light') return saved;
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function applyTheme(theme) {
+		html.setAttribute('data-theme', theme);
+		toggle.setAttribute(
+			'aria-label',
+			theme === 'dark' ? 'Zu Light Mode wechseln' : 'Zu Dark Mode wechseln',
+		);
+		toggle.setAttribute('title', theme === 'dark' ? 'Light Mode' : 'Dark Mode');
+	}
+
+	// Apply on load (before paint to avoid flash)
+	applyTheme(getInitialTheme());
+
+	toggle.addEventListener('click', () => {
+		const current = html.getAttribute('data-theme');
+		const next = current === 'dark' ? 'light' : 'dark';
+		applyTheme(next);
+		localStorage.setItem('ds-theme', next);
+	});
+
+	// Sync with OS preference changes
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+		if (!localStorage.getItem('ds-theme')) {
+			applyTheme(e.matches ? 'dark' : 'light');
+		}
+	});
+})();
 // =====================
 // GENERATE PERSONALITY
 // =====================
