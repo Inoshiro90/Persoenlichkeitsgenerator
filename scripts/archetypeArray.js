@@ -296,7 +296,7 @@ const archetypeArray = [
 	},
 	{
 		id: 'lover',
-		archetype: 'Liebhaber',
+		archetype: 'Liebender',
 		honestyHumility: 'low',
 		emotionality: 'high',
 		extraversion: 'high',

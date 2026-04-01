@@ -92,10 +92,11 @@ function updateOutput(archetypeInfo) {
 	// SECTION: Archetype Information
 	// ─────────────────────────────────────────────────
 	if (lastArchetype !== 'none') {
+		output.innerHTML += `<h2 class="mt-6">Archetyp</h2>`;
 		if (document.getElementById('showArchetype').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
-					<div class="card-body">
+					<div class="card-header">
 						<h3>${archetypeInfo.name}</h3>
 					</div>
 				</div>
@@ -109,8 +110,8 @@ function updateOutput(archetypeInfo) {
 				.join(', ');
 			output.innerHTML += `
 				<div class="card mb-4">
-					<div class="card-body">
-						<h4>Alias</h4>
+				<h4 class="card-header">Alias</h4>
+					<div class="card-body">						
 						<p class="text-secondary">${aliases}</p>
 					</div>
 				</div>
@@ -121,8 +122,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeDescription').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
-					<div class="card-body">
-						<h4>Beschreibung</h4>
+				<h4 class="card-header">Beschreibung</h4>
+					<div class="card-body">						
 						<p class="text-secondary">${archetypeInfo.description}</p>
 					</div>
 				</div>
@@ -133,8 +134,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeCoreIdentity').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Kernidentität</h4>
 					<div class="card-body">
-						<h4>Kernidentität</h4>
 						<p class="text-secondary">${archetypeInfo.core_identity}</p>
 					</div>
 				</div>
@@ -145,8 +146,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypePerception').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Wahrnehmung</h4>
 					<div class="card-body">
-						<h4>Wahrnehmung</h4>
 						<p class="text-secondary">${archetypeInfo.perception}</p>
 					</div>
 				</div>
@@ -157,8 +158,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeLifePlot').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Lebensmuster</h4>
 					<div class="card-body">
-						<h4>Lebensmuster</h4>
 						<p class="text-secondary">${archetypeInfo.life_plot}</p>
 					</div>
 				</div>
@@ -169,8 +170,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeFulfillingActivities').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Tätigkeiten</h4>
 					<div class="card-body">
-						<h4>Erfüllende Tätigkeiten</h4>
 						<p class="text-secondary">${archetypeInfo.fulfilling_activities}</p>
 					</div>
 				</div>
@@ -181,8 +182,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeHappinessSource').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Glücksquellen</h4>
 					<div class="card-body">
-						<h4>Glücksquellen</h4>
 						<p class="text-secondary">${archetypeInfo.happiness_source}</p>
 					</div>
 				</div>
@@ -193,8 +194,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeLeadershipStyle').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Führungsstil</h4>
 					<div class="card-body">
-						<h4>Führungsstil</h4>
 						<p class="text-secondary">${archetypeInfo.leadership_style}</p>
 					</div>
 				</div>
@@ -205,8 +206,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeHowOthersSeeThem').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Fremdwahrnehmung</h4>
 					<div class="card-body">
-						<h4>Fremdwahrnehmung</h4>
 						<p class="text-secondary">${archetypeInfo.how_others_see_them}</p>
 					</div>
 				</div>
@@ -217,8 +218,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeShadowTendencies').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Schattenseiten</h4>
 					<div class="card-body">
-						<h4>Schattenseiten</h4>
 						<p class="text-secondary">${archetypeInfo.shadow_tendencies}</p>
 					</div>
 				</div>
@@ -229,8 +230,8 @@ function updateOutput(archetypeInfo) {
 		if (document.getElementById('showArchetypeUnderlyingFear').checked) {
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Tiefe Ängste</h4>
 					<div class="card-body">
-						<h4>Tiefe Ängste</h4>
 						<p class="text-secondary">${archetypeInfo.underlying_fear}</p>
 					</div>
 				</div>
@@ -244,8 +245,8 @@ function updateOutput(archetypeInfo) {
 				.join('');
 			output.innerHTML += `
 				<div class="card mb-4">
+				<h4 class="card-header">Wachstumsfelder</h4>
 					<div class="card-body">
-						<h4>Wachstumsfelder</h4>
 						<ul class="text-secondary">${growthAreas}</ul>
 					</div>
 				</div>
@@ -440,7 +441,7 @@ function updateOutput(archetypeInfo) {
 
 						<div class="mb-4">
 							<h5 class="text-primary">Zitat</h5>
-							<p class="text-secondary"><em>"${info.quote || ''}"</em></p>
+							<p class="text-secondary">"${info.quote || ''}"</p>
 						</div>
 
 						<div class="mb-4">
