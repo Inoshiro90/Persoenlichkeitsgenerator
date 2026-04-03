@@ -43,16 +43,16 @@ function resetUsedDomainDegrees() {
 // =====================
 // FACET DEGREE
 // =====================
-function getFacetDegree(facetName) {
-	const domainKey = facetName.startsWith('Alt') ? 'Alt' : facetName.charAt(0);
+// function getFacetDegree(facetName) {
+// 	const domainKey = facetName.startsWith('Alt') ? 'Alt' : facetName.charAt(0);
 
-	if (!usedDomainDegrees[domainKey] || usedDomainDegrees[domainKey].length === 0) {
-		console.warn('Keine verfügbaren Partikel mehr für Domäne:', domainKey);
-		return '';
-	}
+// 	if (!usedDomainDegrees[domainKey] || usedDomainDegrees[domainKey].length === 0) {
+// 		console.warn('Keine verfügbaren Partikel mehr für Domäne:', domainKey);
+// 		return '';
+// 	}
 
-	const degree = usedDomainDegrees[domainKey].shift();
-	// console.log(`Facettengrad (${facetName}, Domäne ${domainKey}):`, degree);
+// 	const degree = usedDomainDegrees[domainKey].shift();
+// 	// console.log(`Facettengrad (${facetName}, Domäne ${domainKey}):`, degree);
 
-	return degree;
-}
+// 	return degree;
+// }

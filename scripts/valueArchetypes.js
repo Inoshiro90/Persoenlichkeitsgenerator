@@ -100,6 +100,7 @@ function berechneBerreichsArchetyp(valueProfile) {
 
 	// ── Schritt 2: Primaerbereich ─────────────────────────────────────────────
 	const z_primaer = scores[b1];
+	const z_sekundaer = scores[b2];
 	const toneKey_p = toneKeyFor(b1, z_primaer);
 
 	// Wenn selbst der hoechste Bereich nicht ueber der Schwelle liegt,
@@ -179,7 +180,13 @@ function berechneBerreichsArchetyp(valueProfile) {
 			name: name_p,
 			...texte_p,
 		},
-		sekundaer,
+		sekundaer: {
+						bereich: b2,
+			z: Math.round(z_sekundaer * 100) / 100,
+			toneKey: toneKey_p,
+			name: name_p,
+			...texte_p,
+		},
 		gegenpol: gegenpol_obj,
 		spannung,
 	};
@@ -207,14 +214,15 @@ function renderBereichsArchetyp(ergebnis, showScores = false) {
 		ST: 'Selbsttranszendenz',
 	};
 
+
 	if (ergebnis.ausgeglichen) {
 		return `<hr>
-		<h4>Werte-Archetyp</h4>
+		<h3>Werte-Archetyp</h3>
 		<p>Diese Person zeigt kein klar dominantes Wertemuster. Ihr Werteprofil ist ausgeglichen
 		über alle Bereiche verteilt.</p>`;
 	}
 
-	let html = `<hr><h4>Werte-Archetyp</h4>`;
+	let html = `<h3>Werte-Archetyp</h3>`;
 
 	// Optionale Scores-Uebersicht
 	if (showScores) {
@@ -228,69 +236,34 @@ function renderBereichsArchetyp(ergebnis, showScores = false) {
 
 	// ── Primaerbereich ──────────────────────────────────────────────────────
 	const p = ergebnis.primaer;
+	const s = ergebnis.sekundaer;
 	html += `
-	<div class="archetyp-block archetyp-primaer">
-		<h5>${p.name}</h5>
-		<h6>Primärer Bereich</h6> 
-		<p>${bereichLabel[p.bereich]}</p>
+	<div class="card mb-4">
+		<h4 class="card-header">${p.name}</h4>
+		<div class="card-body">
+		<h5>Primärer Bereich</h5>
+		<p class="text-secondary">${bereichLabel[p.bereich]}</p>
 		<h6>Persönlichkeitsmerkmal</h6> 
-		<p>${p.pm}</p>
+		<p class="text-secondary">${p.pm}</p>
 		<h6>Ideal</h6> 
-		<p>${p.ideal}</p>
+		<p class="text-secondary">${p.ideal}</p>
 		<h6>Bindung</h6> 
-		<p>${p.bindung}</p>
+		<p class="text-secondary">${p.bindung}</p>
 		<h6>Makel</h6> 
-		<p>${p.makel}</p>
-	</div>
-	<hr>`;
-
-	// ── Sekundaerbereich (falls vorhanden) ──────────────────────────────────
-	if (ergebnis.sekundaer) {
-		const s = ergebnis.sekundaer;
-		html += `
-	<div class="archetyp-block archetyp-sekundaer">
-		<h6>Sekundärer Bereich</h6>
-		<p>${bereichLabel[s.bereich]}</p>
+		<p class="text-secondary">${p.makel}</p>
+		<br>
+		<h5>Sekundärer Bereich</h5>
+		<p class="text-secondary">${bereichLabel[s.bereich]}</p>
 		<h6>Persönlichkeitsmerkmal</h6> 
-		<p>${s.pm}</p>
+		<p class="text-secondary">${s.pm}</p>
 		<h6>Ideal</h6> 
-		<p>${s.ideal}</p>
+		<p class="text-secondary">${s.ideal}</p>
 		<h6>Bindung</h6> 
-		<p>${s.bindung}</p>
+		<p class="text-secondary">${s.bindung}</p>
 		<h6>Makel</h6> 
-		<p>${s.makel}</p>
+		<p class="text-secondary">${s.makel}</p>
 	</div>
-	<hr>`;
-	}
-
-	// ── Gegenpol (falls vorhanden) ───────────────────────────────────────────
-	if (ergebnis.gegenpol) {
-		const g = ergebnis.gegenpol;
-		html += `
-	<div class="archetyp-block archetyp-gegenpol">
-		<h6>Abgelehnter Bereich</h6>
-		<p>${bereichLabel[g.bereich]}</p>
-		<h6>Persönlichkeitsmerkmal</h6> 
-		<p>${g.pm}</p>
-		<h6>Ideal</h6> 
-		<p>${g.ideal}</p>
-		<h6>Bindung</h6> 
-		<p>${g.bindung}</p>
-		<h6>Makel</h6> 
-		<p>${g.makel}</p>
-	</div>
-	<hr>`;
-	}
-
-	// ── Innere Spannung (falls vorhanden) ────────────────────────────────────
-	if (ergebnis.spannung) {
-		html += `
-	<div class="archetyp-block archetyp-spannung">
-		<h6>Innere Spannung</h6> 
-		<p>${ergebnis.spannung.text}</p>
-	</div>
-	<hr>`;
-	}
+	`;
 
 	return html;
 }

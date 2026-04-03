@@ -51,7 +51,6 @@ const BEREICH_LABEL = {
 	ST: 'Selbsttranszendenz',
 };
 
-
 const KOHAERENZ_SCHWELLEN = [
 	{key: 'sehrKoharent', label: 'Sehr koh\u00e4rent', maxAbstand: 2},
 	{key: 'koharent', label: 'Koh\u00e4rent', maxAbstand: 4},
@@ -101,7 +100,7 @@ function coherenceLevel(maxAbstand) {
 	return KOHAERENZ_SCHWELLEN[KOHAERENZ_SCHWELLEN.length - 1];
 }
 
-function chooseRandomly(arr) {
+function _ewkChooseRandomly(arr) {
 	if (!arr || arr.length === 0) return '';
 	return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -111,16 +110,15 @@ function loadValueTexts(key) {
 	const block = EINZELWERT_TEXTE[normKey];
 	if (!block) return null;
 	return {
-		pm: chooseRandomly(block.pm),
-		ideal: chooseRandomly(block.ideale),
-		bindung: chooseRandomly(block.bindungen),
-		makel: chooseRandomly(block.makel),
+		pm: _ewkChooseRandomly(block.pm),
+		ideal: _ewkChooseRandomly(block.ideale),
+		bindung: _ewkChooseRandomly(block.bindungen),
+		makel: _ewkChooseRandomly(block.makel),
 	};
 }
 
-function calculateSingeValueCombination(valueProfile, anzahl = 3) {
+function calculateSingeValueCombination(valueProfile, anzahl = 2) {
 	if (!valueProfile) return null;
-
 
 	const sortiert = EWK_VALUE_KEYS.map((key) => ({key, z: valueProfile[key]?.z ?? 0})).sort(
 		(a, b) => b.z - a.z,
@@ -128,9 +126,7 @@ function calculateSingeValueCombination(valueProfile, anzahl = 3) {
 
 	const topN = sortiert.slice(0, anzahl);
 
-
 	const positiveAnzahl = topN.filter((w) => w.z > 0).length;
-
 
 	let maxAbstand = 0;
 	for (let i = 0; i < topN.length; i++) {
@@ -140,12 +136,10 @@ function calculateSingeValueCombination(valueProfile, anzahl = 3) {
 		}
 	}
 
-
 	const stufe = coherenceLevel(maxAbstand);
 
-
 	const kohaerenzTexte = KOHAERENZ_TEXTE[stufe.key];
-	const kohaerenzText = chooseRandomly(kohaerenzTexte) ?? '';
+	const kohaerenzText = _ewkChooseRandomly(kohaerenzTexte) ?? '';
 
 	const eintraege = topN.map(({key, z}) => {
 		const info = typeof getMoralValueInfo !== 'undefined' ? getMoralValueInfo(key) : null;
@@ -163,10 +157,8 @@ function calculateSingeValueCombination(valueProfile, anzahl = 3) {
 		};
 	});
 
-
 	const bereicheImTrio = [...new Set(topN.map((w) => WERT_BEREICH[w.key] ?? ''))];
 	const bereichsBeteiligung = bereicheImTrio.map((b) => BEREICH_LABEL[b] ?? b).join(' + ');
-
 
 	const paarAbstaende = [];
 	for (let i = 0; i < topN.length; i++) {
@@ -192,7 +184,7 @@ function calculateSingeValueCombination(valueProfile, anzahl = 3) {
 	};
 }
 
-function renderSingleValueCombination(ergebnis, showDetails = false) {
+function renderSingleValueCombination(ergebnis, showDetails = false, anzahl, einträge) {
 	if (!ergebnis) return '';
 
 	const kohaerenzKlassen = {
@@ -204,14 +196,10 @@ function renderSingleValueCombination(ergebnis, showDetails = false) {
 	};
 	const kClass = kohaerenzKlassen[ergebnis.kohaerenz] ?? '';
 
-	let html = `<hr><h4>Werte-Kombination</h4>`;
+	let html = `
+	<h3>Werte-Kombination</h3>
 
-	html += `
-	<div class="ewk-meta">
-		<span class="ewk-kohaerenz-badge ${kClass}">${ergebnis.kohaerenzLabel}</span>
-		<span class="ewk-bereiche">${ergebnis.bereichsBeteiligung}</span>
-	</div>
-	<p class="ewk-kohaerenz-text">${ergebnis.kohaerenzText}</p>`;
+	`;
 
 	if (showDetails && ergebnis.paarAbstaende.length) {
 		const paare = ergebnis.paarAbstaende
@@ -223,19 +211,18 @@ function renderSingleValueCombination(ergebnis, showDetails = false) {
 	// Einzelwert-Bloecke
 	for (const eintrag of ergebnis.eintraege) {
 		html += `
-	<div class="ewk-wert-block">
-		<h5>${eintrag.rank}. ${eintrag.title}</h5>
-		<h6>Persönlichkeitsmerkmal:</h6> 
+			<div class="card mb-4">
+	<h4 class="card-header">${eintrag.title}</h4>
+	<div class="card-body">	
+		<h5>Persönlichkeitsmerkmal</h5> 
 		<p>${eintrag.pm}</p>
-		<h6>Ideal</h6> 
+		<h5>Ideal</h5> 
 		<p>${eintrag.ideal}</p>
-		<h6>Bindung</h6> 
+		<h5>Bindung</h5> 
 		<p>${eintrag.bindung}</p>
-		<h6>Makel</h6> 
+		<h5>Makel</h5> 
 		<p>${eintrag.makel}</p>
-	</div>
-`;
+		</div> </div>`;
 	}
-
 	return html;
 }
