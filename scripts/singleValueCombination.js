@@ -214,13 +214,13 @@ function renderSingleValueCombination(ergebnis, showDetails = false, anzahl, ein
 			<div class="card mb-4">
 	<h4 class="card-header">${eintrag.title}</h4>
 	<div class="card-body">	
-		<h5>Persönlichkeitsmerkmal</h5> 
+		<h5 class="text-primary">Persönlichkeitsmerkmal</h5> 
 		<p>${eintrag.pm}</p>
-		<h5>Ideal</h5> 
+		<h5 class="text-primary">Ideal</h5> 
 		<p>${eintrag.ideal}</p>
-		<h5>Bindung</h5> 
+		<h5 class="text-primary">Bindung</h5> 
 		<p>${eintrag.bindung}</p>
-		<h5>Makel</h5> 
+		<h5 class="text-primary">Makel</h5> 
 		<p>${eintrag.makel}</p>
 		</div> </div>`;
 	}

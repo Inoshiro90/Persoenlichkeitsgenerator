@@ -21,8 +21,8 @@ const BEREICH_WERTE = {
 
 const GEGENPOL = {OW: 'BW', BW: 'OW', SE: 'ST', ST: 'SE'};
 
-const SCHWELLE_HOCH = 0.35;
-const SCHWELLE_NIEDRIG = -0.35;
+const SCHWELLE_HOCH = 0;
+const SCHWELLE_NIEDRIG = -0;
 
 function areaZScore(bereich, profile) {
 	const keys = BEREICH_WERTE[bereich];
@@ -102,6 +102,7 @@ function berechneBerreichsArchetyp(valueProfile) {
 	const z_primaer = scores[b1];
 	const z_sekundaer = scores[b2];
 	const toneKey_p = toneKeyFor(b1, z_primaer);
+	const toneKey_s = toneKeyFor(b2, z_sekundaer);
 
 	// Wenn selbst der hoechste Bereich nicht ueber der Schwelle liegt,
 	// faellt die Person in eine "ausgeglichene" Kategorie ohne klaren Archetypen.
@@ -117,8 +118,11 @@ function berechneBerreichsArchetyp(valueProfile) {
 	}
 
 	const istDominant_p = z_primaer >= 1.0;
+	const istDominant_s = z_sekundaer >= 1.0;
 	const texte_p = chooseTexts(toneKey_p);
+	const texte_s = chooseTexts(toneKey_s);
 	const name_p = chooseArchetypeName(b1, istDominant_p);
+	const name_s = chooseArchetypeName(b2, istDominant_s);
 
 	// ── Schritt 3: Sekundaerbereich ───────────────────────────────────────────
 	// Sekundaer = zweithochster, der kein Gegenpol des Primaers ist und ueber Schwelle liegt
@@ -181,11 +185,11 @@ function berechneBerreichsArchetyp(valueProfile) {
 			...texte_p,
 		},
 		sekundaer: {
-						bereich: b2,
+			bereich: b2,
 			z: Math.round(z_sekundaer * 100) / 100,
-			toneKey: toneKey_p,
-			name: name_p,
-			...texte_p,
+			toneKey: toneKey_s,
+			name: name_s,
+			...texte_s,
 		},
 		gegenpol: gegenpol_obj,
 		spannung,
@@ -227,6 +231,7 @@ function renderBereichsArchetyp(ergebnis, showScores = false) {
 	// Optionale Scores-Uebersicht
 	if (showScores) {
 		const s = ergebnis.scores;
+		const p = ergebnis.primaer;
 		html += `<p class="archetyp-scores">
 			<small>Bereichs-Profile: OW ${s.OW > 0 ? '+' : ''}${s.OW} &nbsp;|&nbsp;
 			SE ${s.SE > 0 ? '+' : ''}${s.SE} &nbsp;|&nbsp;
@@ -241,26 +246,26 @@ function renderBereichsArchetyp(ergebnis, showScores = false) {
 	<div class="card mb-4">
 		<h4 class="card-header">${p.name}</h4>
 		<div class="card-body">
-		<h5>Primärer Bereich</h5>
+		<h5 class="text-primary">Höhere Wert-Ordnung</h5>
 		<p class="text-secondary">${bereichLabel[p.bereich]}</p>
-		<h6>Persönlichkeitsmerkmal</h6> 
+		<h5 class="text-primary">Persönlichkeitsmerkmal</h5> 
 		<p class="text-secondary">${p.pm}</p>
-		<h6>Ideal</h6> 
+		<h5 class="text-primary">Ideal</h5> 
 		<p class="text-secondary">${p.ideal}</p>
-		<h6>Bindung</h6> 
+		<h5 class="text-primary">Bindung</h5> 
 		<p class="text-secondary">${p.bindung}</p>
-		<h6>Makel</h6> 
+		<h5 class="text-primary">Makel</h5> 
 		<p class="text-secondary">${p.makel}</p>
 		<br>
-		<h5>Sekundärer Bereich</h5>
+		<h5 class="text-primary">Höhere Wert-Ordnung</h5>
 		<p class="text-secondary">${bereichLabel[s.bereich]}</p>
-		<h6>Persönlichkeitsmerkmal</h6> 
+		<h5 class="text-primary">Persönlichkeitsmerkmal</h5> 
 		<p class="text-secondary">${s.pm}</p>
-		<h6>Ideal</h6> 
+		<h5 class="text-primary">Ideal</h5> 
 		<p class="text-secondary">${s.ideal}</p>
-		<h6>Bindung</h6> 
+		<h5 class="text-primary">Bindung</h5> 
 		<p class="text-secondary">${s.bindung}</p>
-		<h6>Makel</h6> 
+		<h5 class="text-primary">Makel</h5> 
 		<p class="text-secondary">${s.makel}</p>
 	</div>
 	`;
