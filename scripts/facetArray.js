@@ -220,7 +220,7 @@ const facetArray = [
 		itemHigh2: 'verfolgt gegenüber unfairer Behandlung das Prinzip „vergeben und vergessen“',
 		itemHigh3: 'bemüht sich auch nach Verletzungen darum, Vertrauen wieder aufzubauen',
 		itemHigh4: 'findet meist die Bereitschaft, anderen aufrichtig zu vergeben',
-		descriptionLow: 'neigt dazu, einen Groll gegenüber denen zu hegen, die man beleidigt haben',
+		descriptionLow: 'neigt dazu, einen Groll gegenüber denen zu hegen, von denen man beleidigt wurde',
 		adjectiveLow: 'nachtragend',
 		itemLow1: 'bleibt dauerhaft misstrauisch gegenüber Personen, die einmal getäuscht haben',
 		itemLow2: 'empfindet vollständige Vergebung gegenüber gemeinem Verhalten als schwierig',
