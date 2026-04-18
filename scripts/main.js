@@ -13,6 +13,44 @@ let lastHybridProfile = null; // probabilistisches Profil (generateValueProfile)
 let lastArchetypErgebnis = null;
 let lastKombinationsErgebnis = null;
 
+const VALUE_KEY_MAP = {
+	// Universalismus
+	universalismus_objektivitaet: 'universalismObjectivity',
+	universalismus_fuersorge: 'universalismConcern',
+	universalismus_toleranz: 'universalismTolerance',
+	universalismus_natur: 'universalismNature',
+
+	// Wohlwollen
+	wohlwollen_fuersorge: 'benevolenceCaring',
+	wohlwollen_verlaesslichkeit: 'benevolenceDependability',
+
+	// Offenheit
+	anregung: 'stimulation',
+	genussstreben: 'hedonism',
+
+	// Selbstbestimmung
+	selbstbestimmung_denken: 'selfDirectionThought',
+	selbstbestimmung_handeln: 'selfDirectionAction',
+
+	// Macht / Erfolg
+	erfolgsstreben: 'achievement',
+	macht_dominanz: 'powerDominance',
+	macht_ressourcen: 'powerResources',
+	ansehen: 'face',
+
+	// Sicherheit
+	sicherheit_persoenlich: 'securityPersonal',
+	sicherheit_gesellschaftlich: 'securitySocietal',
+
+	// Konformität
+	angepasstheit_hinsichtlich_regeln: 'conformityRules',
+	angepasstheit_gegenüber_anderen: 'conformityInterpersonal',
+
+	// Tradition
+	tradition: 'tradition',
+	bescheidenheit: 'humility',
+};
+
 // =====================
 // GENERATE PERSONALITY
 // =====================
@@ -148,16 +186,16 @@ function generatePersonalitySummary() {
 		A: pickMatching('A'),
 		C: pickMatching('C'),
 		O: pickMatching('O'),
-		Alt: pickMatching('Alt'),
+		// Alt: pickMatching('Alt'),
 	};
 
 	const traitAdjectives = Object.values(picked)
 		.map((x) => x?.adj)
 		.filter(Boolean);
 
-	const E = pickMatching('E');
-	const X = pickMatching('X');
-	const A = pickMatching('A');
+	// const E = pickMatching('E');
+	// const X = pickMatching('X');
+	// const A = pickMatching('A');
 
 	// Capitalise first letter helper
 	const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
@@ -168,10 +206,14 @@ function generatePersonalitySummary() {
 
 	const emotionalDesc = picked.E ? cap(picked.E.desc) : '';
 
+	const hexacoLines = Object.entries(picked)
+		.filter(([_, val]) => val && val.adj && val.desc)
+		.map(([domain, val]) => {
+			return `<strong>${val.adj.charAt(0).toUpperCase() + val.adj.slice(1)}: </strong>${cap(val.desc)}`;
+		});
+
 	// ── Schwartz top-3 + dominant HOG ──────────────────────────────────────
-	const top3Values = (lastHybridProfile.top_schwartz_values || [])
-		.slice(0, 2)
-		.map((v) => (typeof LABEL_FULL !== 'undefined' && LABEL_FULL[v] ? LABEL_FULL[v] : v));
+	const humanValues = (lastHybridProfile.top_schwartz_values || []).slice(0, 2);
 	const dominantHOG = HOG_LABELS[lastHybridProfile.dominant_higher_order] || '';
 
 	// ── Build HTML ──────────────────────────────────────────────────────────
@@ -192,26 +234,43 @@ function generatePersonalitySummary() {
 			<div>
 				${row(
 					'var(--color-primary,#6366f1)',
-					'Kern-Archetyp',
+					'Archetyp',
 					`<strong>${archetypeName}:</strong> ${coreIdShort}.`,
 				)}
-				${row(
-					'var(--color-info,#3b82f6)',
-					'Dominante Persönlichkeitszüge',
-					traitAdjectives.map((a) => `<span>${a}</span>`).join(', '),
-				)}
-				${row(
-					'var(--color-info,#3b82f6)',
-					'Soziale &amp; emotionale Art',
-					[emotionalDesc, socialDesc].filter(Boolean).join('<br>'),
-				)}
+				${row('var(--color-info,#3b82f6)', 'Dominante Persönlichkeitszüge', hexacoLines.join('<br>'))}
 				${row(
 					'var(--color-warning,#f59e0b)',
 					'Zentrale Werte',
-					top3Values.length ? top3Values.map((v, i) => `${v}`).join(' und ') : '',
+					humanValues.length
+						? humanValues
+								.map((key) => {
+									const mappedKey = VALUE_KEY_MAP[key] || key;
+									const info = getMoralValueInfo(mappedKey);
+
+									if (!info) {
+										console.warn(
+											'Kein Mapping/Info für:',
+											key,
+											'→',
+											mappedKey,
+										);
+									}
+									const label =
+										typeof LABEL_FULL !== 'undefined' && LABEL_FULL[key]
+											? LABEL_FULL[key]
+											: key;
+
+									const quote = info?.quote || '—';
+									console.log('RAW key:', key);
+									console.log('Mapped key:', mappedKey);
+									console.log('Info:', info);
+									return `<strong>${label}:</strong> ${quote}`;
+								})
+								.join('<br>')
+						: '',
 				)}
 				${row('var(--color-success,#22c55e)', 'Stärken', strengthsShort + '.')}
-				${row('var(--color-error,#ef4444)', 'Schwächen &amp; blinde Flecken', shadowShort + '.')}
+				${row('var(--color-error,#ef4444)', 'Schwächen', shadowShort + '.')}
 			</div>
 		</div>`;
 }
