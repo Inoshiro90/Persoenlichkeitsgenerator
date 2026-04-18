@@ -11,7 +11,7 @@ const VALUES_ANGLE = {
 
 // Full German display labels
 const LABEL_FULL = {
-  selbstbestimmung_denken:'Selbstbestimmtes Handeln', wohlwollen_verlaesslichkeit:'Verlässlichkeit',
+  selbstbestimmung_denken:'Selbstbestimmtes Denken', wohlwollen_verlaesslichkeit:'Verlässlichkeit',
   universalismus_objektivitaet:'Objektivität', selbstbestimmung_handeln:'Selbstbestimmtes Handeln',
   stimulation:'Anregung', hedonismus:'Genussstreben', leistung:'Erfolgsstreben',
   macht_dominanz:'Vormachtsstellung', macht_ressourcen:'Ressourcenkontrolle', ansehen:'Ansehen',
