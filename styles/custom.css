@@ -333,7 +333,7 @@ li {
 }
 
 .section {
-	padding-top: var(--space-8);
+	/* padding-top: var(--space-8); */
 	padding-bottom: var(--space-7);
 	border-bottom: var(--border-whisper);
 }

@@ -18,7 +18,7 @@ function getArchetypeInfo(archetype) {
 			leadership_style:
 				'Inspirierend und optimistisch. Modelliert Integrität und wertebasiertes Handeln. Stellt sicher, dass alle wissen, was zu tun ist und wie es getan werden soll.',
 			how_others_see_them:
-				'Hoffnungsvoll und aufbauend. Andere verlassen sich auf den Idealisten zur Aufmunterung und Inspiration. Manche sehen in ihm eine Stütze, andere könnten ihn als leichte Beute betrachten.',
+				'Wird dafür geschätzt hoffnungsvoll und aufbauend zu sein. Andere verlassen sich auf den Idealisten zur Aufmunterung und Inspiration. Manche sehen in ihm eine Stütze, andere könnten ihn als leichte Beute betrachten.',
 			shadow_tendencies:
 				'Neigt dazu, Schwierigkeiten zu unterschätzen, übermäßig optimistisch oder von anderen abhängig zu sein. Kann blind gegenüber Gefahren und den harten Realitäten anderer sein. Wirkt manchmal naiv oder gefangen in Verleugnung.',
 			underlying_fear:
@@ -109,7 +109,7 @@ function getArchetypeInfo(archetype) {
 			leadership_style:
 				'Hervorragend in Zielsetzung und Umsetzung. Motiviert andere zu Höchstleistungen. Fokussiert auf Stärken und Schwächen. Tendiert zu klaren Entweder-oder-Szenarien und zu strategischen Plänen mit klar definierten Verantwortlichkeiten.',
 			how_others_see_them:
-				'Stärke, Entschlossenheit und Mut werden bewundert. Nahestehende sorgen sich um Burnout oder mangelnden Gefühlsausdruck. Bei übersteigertem Selbstvertrauen wirkt der Warrior arrogant oder einschüchternd, sodass andere schmeicheln statt die Wahrheit zu sagen.',
+				'Stärke, Entschlossenheit und Mut werden bewundert. Nahestehende sorgen sich um Burnout oder mangelnden Gefühlsausdruck. Bei übersteigertem Selbstvertrauen wirkt der Krieger arrogant oder einschüchternd, sodass andere schmeicheln statt die Wahrheit zu sagen.',
 			shadow_tendencies:
 				'Neigt zu Schwarz-Weiß-Denken und unnötigen Kämpfen. Braucht Feinde für die Kriegergeschichte, was die Gefahr des Sündenbockdenkens birgt. Kann Beiträge von Wesen, die als schwach gelten, leicht übersehen.',
 			underlying_fear:
@@ -201,7 +201,7 @@ function getArchetypeInfo(archetype) {
 			leadership_style:
 				'Gut in der Neugestaltung von Strukturen durch Abbau von Programmen, die nicht mehr dienen, und Beendigung erfolgloser Vorhaben. Hält Qualitätsstandards durch Rechenschaftspflicht aufrecht. Kann Begeisterung für Innovation wecken und dabei Veränderungsängste dämpfen.',
 			how_others_see_them:
-				'Problemlösungsfähigkeit, Vision und Mut werden bewundert. Wenn es darauf ankommt, meiden andere die Assoziation mit dem Revolutionary aus Angst vor Konsequenzen oder dem entstehenden Chaos.',
+				'Problemlösungsfähigkeit, Vision und Mut werden bewundert. Wenn es darauf ankommt, meiden andere die Assoziation mit dem Revolutionären aus Angst vor Konsequenzen oder dem entstehenden Chaos.',
 			shadow_tendencies:
 				'Neigt dazu, das Brechen ethischer oder rechtlicher Regeln zu rationalisieren, weil der Zweck die Mittel heiligt. Kann zu leicht zum Gesetzlosen werden. Zeigt keine Verletzlichkeit oder Lücken in Plänen, um das Vertrauen im Chaos aufrechtzuerhalten.',
 			underlying_fear:
@@ -228,7 +228,7 @@ function getArchetypeInfo(archetype) {
 			fulfilling_activities:
 				'Ausdruck der kreativen Vision ermöglichen. Originalität in die Welt einbringen oder einfach etwas funktional Schönes schaffen. Kreativität auf alle Lebensbereiche ausweiten und Schönheit sowie Neuheit ins Alltägliche bringen.',
 			happiness_source:
-				'Wenn das Erschaffene die eigene Vision wirklich widerspiegelt. Wenn andere die kreativen Leistungen schätzen, fühlt sich der Creator bestätigt, denn ein Teil von ihm spiegelt sich in jedem Werk. Der kreative Prozess und eine erweckte Vorstellungskraft sind an sich schon genussvoll.',
+				'Wenn das Erschaffene die eigene Vision wirklich widerspiegelt. Wenn andere die kreativen Leistungen schätzen, fühlt sich der Schöpfer bestätigt, denn ein Teil von ihm spiegelt sich in jedem Werk. Der kreative Prozess und eine erweckte Vorstellungskraft sind an sich schon genussvoll.',
 			leadership_style:
 				'Unternehmerisch. Hervorragend in der Gestaltung eleganter Produkte, Prozesse oder Umgebungen. Leicht gelangweilt von Routine: delegiert oder findet einfallsreiche Wege für Alltagsaufgaben. Übergibt entwickelte Projekte lieber anderen und widmet sich dem nächsten.',
 			how_others_see_them:
@@ -263,7 +263,7 @@ function getArchetypeInfo(archetype) {
 			leadership_style:
 				'Gut darin, Strukturen, Richtlinien und Verfahren einzurichten. Hervorragend im Netzwerken und in politischen Prozessen. Pflichtbewusst: erledigt auch unangenehme Aufgaben und repräsentiert auch dann, wenn es nicht gelegen kommt.',
 			how_others_see_them:
-				'Wer weiß, wie man die Dinge in die Hand nimmt, wird geschätzt. Andere können die Autorität beneiden und untergraben oder schmeicheln, um sich in die Gunst zu setzen. Der Ruler muss stark und kompetent wirken, darf aber nicht zu harsch, diktatorisch oder rachsüchtig sein.',
+				'Weiß, wie man die Dinge in die Hand nimmt, und wird dafür geschätzt. Andere können die Autorität beneiden und untergraben oder schmeicheln, um sich in die Gunst zu setzen. Der Herrscher muss stark und kompetent wirken, darf aber nicht zu harsch, diktatorisch oder rachsüchtig sein.',
 			shadow_tendencies:
 				'Neigt dazu, die Autorität anderer zu untergraben, Verbündete zu entfremden oder andere zu mikromanagen. Kann Beiträge von statusarmen Wesen übersehen. Gefahr von Machtmissbrauch, Anspruchsdenken und dem Gefühl, anderen überlegen zu sein.',
 			underlying_fear:
@@ -293,7 +293,7 @@ function getArchetypeInfo(archetype) {
 			leadership_style:
 				'Visionär, der andere inspiriert, ihren tieferen Werten treu zu sein und gemeinsam Träume zu verwirklichen. Schafft flexible Strukturen und synergistische Partnerschaften, deren Ganzes mehr ist als die Summe der Teile. Nutzt alle verfügbaren Ressourcen, indem er wahrnimmt, was andere übersehen.',
 			how_others_see_them:
-				'Charisma und Vision werden geschätzt, aber auch die Fähigkeiten und der Einfluss des Magicians können Misstrauen hervorrufen. Andere befürchten manchmal, manipuliert oder in eine Falle gelockt zu werden.',
+				'Charisma und Vision werden geschätzt, aber auch die Fähigkeiten und der Einfluss des Magiers können Misstrauen hervorrufen. Andere befürchten manchmal, manipuliert oder in eine Falle gelockt zu werden.',
 			shadow_tendencies:
 				'Neigt dazu, Gurus zu verfallen oder selbst einen zu spielen. Kann wie ein Zauberlehrling Unordnung hinterlassen, indem die eigenen Fähigkeiten überschätzt werden. Gefahr der Hybris, das Gefühl zu entwickeln, ein besonderes Wesen zu sein, für das normale Regeln nicht gelten.',
 			underlying_fear:
@@ -316,7 +316,7 @@ function getArchetypeInfo(archetype) {
 			perception:
 				'Nimmt Denkfehler wahr und weiß, wie leicht man in Denkgewohnheiten gefangen wird. Bedächtigkeit kann zu langsamen Reaktionen führen, wenn keine Dringlichkeit besteht. Kann relative Wahrheiten in ihrem Kontext einschätzen, auch angesichts der Erkenntnis, dass nichts mit absoluter Gewissheit gewusst werden kann.',
 			life_plot:
-				'Dreht sich um die Neugier, etwas herauszufinden. Beginnt mit einem rätselhaften Fakt oder Ereignis. Als Gelehrte und Detektiv verfolgt der Sage hartnäckig die Wahrheit und teilt seine Erkenntnisse mit anderen, nicht nur als Pädagogin oder Pädagoge, sondern auch als Detektiv, Journalist oder Beraterin.',
+				'Dreht sich um die Neugier, etwas herauszufinden. Beginnt mit einem rätselhaften Fakt oder Ereignis. Als Gelehrte und Detektiv verfolgt der Weise hartnäckig die Wahrheit und teilt seine Erkenntnisse mit anderen, nicht nur als Pädagogin oder Pädagoge, sondern auch als Detektiv, Journalist oder Beraterin.',
 			fulfilling_activities:
 				'Über Ideen und die Welt lernen. Diszipliniertes, komplexes Denken, das zur Entwicklung von Theorien führt. Liebt es, kollektives Wissen voranzubringen, wenn auch nur um ein kleines Stück, und Wissen an andere weiterzugeben.',
 			happiness_source:
@@ -324,7 +324,7 @@ function getArchetypeInfo(archetype) {
 			leadership_style:
 				'Hervorragend in leidenschaftsloser Analyse, Planung und Evaluation. Kann in Krisenzeiten loslassen, das große Bild sehen und die lange Perspektive einnehmen. Hat eine beruhigende Wirkung und erkennt nuancierte Emotionen in Entscheidungsprozessen.',
 			how_others_see_them:
-				'Intelligenz und Expertise werden geschätzt. Andere suchen den Sage als Ratgeber auf. Wird als klug und scharfsinnig angesehen, als Expertin oder Experte, als Lehrende oder als Mentorin.',
+				'Intelligenz und Expertise werden geschätzt. Andere suchen den Weisen als Ratgeber auf. Wird als klug und scharfsinnig angesehen, als Expertin oder Experte, als Lehrende oder als Mentorin.',
 			shadow_tendencies:
 				'Neigt zu Dogmatismus und Sturheit, mit Geringschätzung für das gewöhnliche Leben. Kann den Körper wie ein bloßes Vehikel für den Verstand behandeln. Die scharfe Fähigkeit, Fehler zu sehen, kann einen negativen oder zynischen Charakter annehmen. Verteidigt bisweilen widerlegte Überzeugungen zum Schutz des eigenen Ansehens.',
 			underlying_fear:
@@ -346,7 +346,7 @@ function getArchetypeInfo(archetype) {
 			perception:
 				'Findet Chancen für Spaß in fast jeder Situation. Findet einfallsreiche Wege um Hindernisse und schätzt die Absurditäten des Lebens, die letztlich zu unvergesslichen Geschichten werden.',
 			life_plot:
-				'Beginnt mit Frustration in langweiligen, eingeschränkten Situationen oder dort, wo jene an der Macht sich lächerlich verhalten. Der Jester handelt, um Absurdität zu enthüllen, die Lage aufzulockern und Lachen zu erzeugen. Nutzt Satire, um mit einer gewissen Straffreiheit auszusprechen, was andere nicht hören wollen. Denkt außerhalb ausgetretener Pfade, um amüsante Wege durch schwierige Situationen zu finden.',
+				'Beginnt mit Frustration in langweiligen, eingeschränkten Situationen oder dort, wo jene an der Macht sich lächerlich verhalten. Der Narr handelt, um Absurdität zu enthüllen, die Lage aufzulockern und Lachen zu erzeugen. Nutzt Satire, um mit einer gewissen Straffreiheit auszusprechen, was andere nicht hören wollen. Denkt außerhalb ausgetretener Pfade, um amüsante Wege durch schwierige Situationen zu finden.',
 			fulfilling_activities:
 				'Freizeitaktivitäten genießen, verspielt und erfinderisch sein und andere zum Mitmachen bewegen. Brainstorming genießen, besonders wilde Ideen, die den Geist befreien. Im Trickster-Modus andere harmlos in die Irre führen, damit sie das Richtige tun.',
 			happiness_source:
@@ -354,11 +354,11 @@ function getArchetypeInfo(archetype) {
 			leadership_style:
 				'Gut darin, Widersprüche und Probleme auf ungewöhnliche Weise zu lösen. Brainstorming und das Aufrechterhalten hoher Moral. Bringt Humor und Leichtigkeit ins Team, sodass andere gerne zur Arbeit erscheinen. Hält die Energie auch in anspruchsvollen Zeiten durch spielerische Elemente hoch.',
 			how_others_see_them:
-				'Humor und Lebendigkeit werden geschätzt, besonders sanfter Humor, der anderen hilft, das eigene Verhalten zu erkennen. Andere wünschen sich bisweilen, der Jester würde sich beruhigen, Dinge ernst nehmen und Regeln folgen. Wenn er sich in schwierigen Zeiten durchmogelt, ist es schwer, ihn zu unterstützen.',
+				'Humor und Lebendigkeit werden geschätzt, besonders sanfter Humor, der anderen hilft, das eigene Verhalten zu erkennen. Andere wünschen sich bisweilen, der Narr würde sich beruhigen, Dinge ernst nehmen und Regeln folgen. Wenn er sich in schwierigen Zeiten durchmogelt, ist es schwer, ihn zu unterstützen.',
 			shadow_tendencies:
 				'Neigt zu Verantwortungslosigkeit, Ausschweifung oder schlechten Streichen, die andere wirklich verletzen können. Nimmt sich selbst nicht ernst genug, um Träume zu verwirklichen oder stabil zu bleiben. Kann andere in ihrem Schmerz und Kämpfen unbeabsichtigt abweisen.',
 			underlying_fear:
-				'Angst vor den vermeintlichen Fesseln von Langeweile und Verantwortung sowie davor, zu versagen oder andere zu enttäuschen. Wenn andere den Jester nicht ernst nehmen, verlassen sie sich nicht auf ihn, und er muss niemanden enttäuschen. Am meisten fürchtet er, das Leben zu verpassen.',
+				'Angst vor den vermeintlichen Fesseln von Langeweile und Verantwortung sowie davor, zu versagen oder andere zu enttäuschen. Wenn andere den Narr nicht ernst nehmen, verlassen sie sich nicht auf ihn, und er muss niemanden enttäuschen. Am meisten fürchtet er, das Leben zu verpassen.',
 			growth_areas: [
 				'Verantwortlichkeiten erfüllen, auch langweilige',
 				'Wege finden, auch Routinearbeit Spaß zu machen',

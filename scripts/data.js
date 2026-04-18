@@ -11,15 +11,15 @@ const VALUES_ANGLE = {
 
 // Full German display labels
 const LABEL_FULL = {
-  selbstbestimmung_denken:'Selbstbestimmung Denken', wohlwollen_verlaesslichkeit:'Wohlwollen Verlässlichkeit',
-  universalismus_objektivitaet:'Universalismus Objektivität', selbstbestimmung_handeln:'Selbstbestimmung Handeln',
-  stimulation:'Stimulation', hedonismus:'Hedonismus', leistung:'Leistung',
-  macht_dominanz:'Macht Dominanz', macht_ressourcen:'Macht Ressourcen', ansehen:'Ansehen',
-  sicherheit_persoenlich:'Sicherheit Persönlich', sicherheit_gesellschaftlich:'Sicherheit Gesellschaftlich',
-  tradition:'Tradition', konformitaet_regeln:'Konformität Regeln',
-  konformitaet_zwischenmenschlich:'Konformität Zwischenmenschlich', bescheidenheit:'Bescheidenheit',
-  universalismus_toleranz:'Universalismus Toleranz', universalismus_natur:'Universalismus Natur',
-  universalismus_fuersorge:'Universalismus Fürsorge', wohlwollen_fuersorge:'Wohlwollen Fürsorge'
+  selbstbestimmung_denken:'Selbstbestimmtes Handeln', wohlwollen_verlaesslichkeit:'Verlässlichkeit',
+  universalismus_objektivitaet:'Objektivität', selbstbestimmung_handeln:'Selbstbestimmtes Handeln',
+  stimulation:'Anregung', hedonismus:'Genussstreben', leistung:'Erfolgsstreben',
+  macht_dominanz:'Vormachtsstellung', macht_ressourcen:'Ressourcenkontrolle', ansehen:'Ansehen',
+  sicherheit_persoenlich:'Persönliche Sicherheit', sicherheit_gesellschaftlich:'Gesellschaftliche Sicherheit',
+  tradition:'Tradition', konformitaet_regeln:'Angepasstheit hinsichtlich Regeln',
+  konformitaet_zwischenmenschlich:'Angepasstheit gegenüber anderen', bescheidenheit:'Bescheidenheit',
+  universalismus_toleranz:'Toleranz', universalismus_natur:'Naturschutz',
+  universalismus_fuersorge:'Gesellschaftliche Belange', wohlwollen_fuersorge:'Fürsorge'
 };
 
 // Higher-Order Groups (HOGs)
